@@ -1,0 +1,76 @@
+
+
+
+<%= form_for [ @article, @comment ] do |f| %>
+
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--
+  <div class="field">
+    <#%= f.label :author_name %><br>
+    <#%= f.text_field :author_name %>
+  </div>
+  <div class="field">
+    <#%= f.label :body %><br>
+    <#%= f.text_field :body %>
+  </div>
+  <div class="field">
+    <#%= f.label :article_id %><br>
+    <#%= f.text_field :article_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>-->
+<!--
+<div class="field">
+ <#%= f.label :Comment,"Your Comment" %><br/>
+    <#%= f.text_area :body %>
+</div>
+
+   <div class="actions">
+    <%= f.submit %>
+  </div>-->
+
+
+<div class="row comment-create-field">
+
+<div class="col-md-2 comment-user-image">
+<span class="user-photo"> 
+                <%= image_tag current_user.image.url(:small), :class=>"user-image" %>
+              </span></div>
+
+<div class="col-md-9 col-md-pull-1 comment-create-form">
+  
+           
+                <div class="input-group">
+                 
+                  <div class="inputer">
+
+                    <div class="input-wrapper">
+
+                       <%= f.text_area :body ,:class =>"form-control ", :placeholder=>"Create comment"%>
+                  
+
+                    </div>
+                  </div><!--.inputer-->
+                 <span class="input-group-btn">
+             
+                   <%= f.submit 'Submit',:class =>"btn btn-brown"%>
+                 </span>
+
+
+                </div><!--.input-group-->
+
+              </div><!--.comment-body-->
+              <% end %>
+                    </div>
+                  

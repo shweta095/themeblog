@@ -1,0 +1,51 @@
+<!--<%=comment.user.user_name %>
+<%= comment.body %>
+
+<#% if user_signed_in? %>
+<#% if comment.user_id == current_user.id %>
+ 
+  
+<#%= link_to 'Delete',article_comment_path(:article_id => @comment.article.id, :id=>comment.id), method: :delete, remote: true, data: {confirm:  "Are you sure?" } %>
+  <#%= link_to 'Edit',edit_article_comment_path(:article_id => comment.article_id, :id => comment.id) %>
+    <#% end %>
+       <#% end %>-->
+
+
+
+						<div class="comment">
+
+							<div class="col-md-10 secc">
+						
+							<span class="user-photo"> 
+								<%= image_tag comment.user.image.url(:small), :class=>"user-image" %>
+							</span>
+						 <span class="user-comment" style="font-size: 15px;
+    font-family: 'RobotoDraft', sans-serif;"><%=comment.user.user_name %>
+                                         <span class="post">Posted-<%= time_ago_in_words(comment.created_at) %></span></span>
+
+							<div class="comment-body">
+								<div class="user">
+									<ul class="inline-list dot-seperator">
+										
+                                     
+
+									</ul>
+								</div>
+								
+								<div class="user-comment-body"><%= comment.body %>
+
+                    </div>
+								<div class="comment-footer">
+									<ul class="inline-list">
+									
+										<li class="small">
+										<i class="fa fa-trash" style="font-size:12px; color: black;"></i><%= link_to 'Edit',edit_article_comment_path(:article_id => comment.article_id, :id => comment.id), :class=>"edit" %></li>
+										<li class="small">
+										  <i class="fa fa-pencil" style="font-size:12px; color: black; margin-left: 3px;"></i>   
+<%= link_to 'Delete',article_comment_path(:article_id => @comment.article.id, :id=>comment.id), method: :delete, remote: true, data: {confirm:  "Are you sure?" }, :class=>"del"%></li>
+										
+									</ul>
+								</div><!--.comment-footer--></div>
+								</div>
+								</div>
+							

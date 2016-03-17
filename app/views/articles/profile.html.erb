@@ -1,0 +1,199 @@
+<!--
+<%= image_tag @profile1.image.url%>
+<%= @profile.title %>
+
+<div class="row">
+<div class="col-md-12">
+
+
+        <p><i class="fa fa-user" style="font-size:22px;"><%= @profile1.user_name %></i></p>
+       <p><i class="fa fa-envelope" style="font-size:22px;"> <%= @profile1.email %></i></p>
+         <p><i class="fa fa-inbox" style="font-size:22px;"><%= @profile1.articles.size %></i></p>
+
+      
+         </div>
+         </div>-->
+
+
+	<div class="content user-profile-img">
+
+		<div class="page-header full-content parallax" style="height: 500px; overflow: hidden">
+			<div class="my class" style="background: url('/assets/picjumbo/large/24.jpg') 50% 50%; background-size: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;">
+			</div>
+
+
+			<div class="profile-info">
+				<div class="profile-photo">
+					<%= image_tag @profile1.image.url() %>
+				</div><!--.profile-photo-->
+				<div class="profile-text light">
+					<%= @profile1.user_name %>
+				
+				</div><!--.profile-text-->
+			</div><!--.profile-info-->
+
+			
+
+			<div class="header-tabs scrollable-tabs sticky">
+				<ul class="nav nav-tabs tabs-active-text-white tabs-active-border-yellow">
+					<li class="active"><a href="#timeline" data-toggle="tab" class="btn-ripple">Timeline</a></li>
+					<li><a href="#about" data-toggle="tab" class="btn-ripple">About</a></li>
+					<li><a href="#photos" data-toggle="tab" class="btn-ripple">Photos</a></li>
+					
+				</ul>
+			</div>
+
+  
+                   <div class="row">
+				<div class="col-sm-6">
+					
+				</div><!--.col-->
+				<div class="col-sm-6">
+				<% if user_signed_in? %>
+           
+					<ol class="breadcrumb">
+						
+						
+						<i class="fa fa-pencil" style="font-size:20px; margin-right:-20px; color:white;"></i> 
+						<%= link_to "Edit Profile",edit_user_registration_path %> 
+						
+					</ol>
+					<% end %>
+				</div><!--.col-->
+			</div><!--.row-->
+        </div><!--.page-header-->
+
+		<div class="row user-profile">
+			<div class="col-md-12 ssss">
+				<div class="tab-content without-border">
+					<div id="timeline" class="tab-pane active">
+
+
+
+                                 <% @profile1.articles.each do |article| %>
+
+
+                                  <div class="col-md-4">
+								<div class="card tile card-post">
+									<div class="card-heading">
+										<p><%= article.title %></p>
+                                                      <%= image_tag article.image.url(:medium),:class=>"new-img" %>
+										
+								<p style="padding: 10px; font-size: 10px;">CREATED BY - <%= @profile1.user_name %></p><p style="font-size: 11px; margin-left: 12px;
+    margin-top: -15px;"><%= article.created_at.strftime("%b %d, %Y")%></p>
+									</div><!--.card-heading-->
+														
+								</div><!--.card-->
+							</div><!--.col-md-4-->
+							<% end %>
+             </div><!--#timeline.tab-pane-->
+				
+
+					<div id="about" class="tab-pane">
+						<div class="row">
+							
+							<div class="col-md-10 col-md-offset-1">
+								<div class="tab-content">
+
+									<div class="tab-pane active" id="about_overview">
+										<div class="legend">Contact Information</div>
+										<div class="row">
+		
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3">Name</div><!--.col-md-3-->
+											<div class="col-md-9"><%= @profile1.user_name %> </div><!--.col-md-9-->
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3">Email</div><!--.col-md-3-->
+											<div class="col-md-9"><%= @profile1.email %></div><!--.col-md-9-->
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3"> No. of articles</div><!--.col-md-3-->
+											<div class="col-md-9"><%= @profile1.articles.size %></div><!--.col-md-9-->
+										</div><!--.row-->
+										
+									</div><!--#about_overview.tab-pane-->
+
+							
+
+								</div><!--.tab-content-->
+
+							</div><!--.col-md-9-->
+						</div><!--.row-->
+					</div><!--#about.tab-pane-->
+
+					<div id="photos" class="tab-pane">
+						<div class="row image-row">
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/1.jpg" title="Some title goes here" data-gallery="#user-gallery"><img src="/assets/picjumbo/1.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/2.jpg" title="Another title goes here" data-gallery="#user-gallery"><img src="/assets/picjumbo/2.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/3.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/3.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/4.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/4.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/5.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/5.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/6.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/6.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/globals/img/picjumbo/7.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/7.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/globals/img/picjumbo/8.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/8.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/9.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/9.jpg" alt=""></a>
+							</div><!--.col-->
+
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/10.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/10.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/11.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/11.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/12.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/12.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/13.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/13.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/14.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/14.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/15.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/15.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/16.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/16.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/17.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/17.jpg" alt=""></a>
+							</div><!--.col-->
+							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
+								<a href="/assets/picjumbo/18.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/18.jpg" alt=""></a>
+							</div><!--.col-->
+
+						</div><!--.row-->
+					</div><!--#photos.tab-pane-->
+					
+
+					</div><!--.col-->
+				</div><!--.tab-pane #settings-->
+
+			</div><!--.row-->
+		</div><!--.user-layer-->
+		<!-- END OF USER LAYER -->
+
+	</div><!--.layer-container-->
+
+
+
+

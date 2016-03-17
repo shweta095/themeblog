@@ -1,0 +1,74 @@
+
+
+  
+<div class="container">
+ <div class="row">
+     <p style="height:30px"></p>      
+ </div>
+   <div class="row ">
+      <div class="col-md-6 ">
+             <div class="show-pic">
+                    <%= image_tag @article.photo.url(:medium), :class =>"show-pic" %>
+                     <div class="show-text">
+                         <p><%= @article.title %><p> 
+                         <p class="fa fa-user" style=" font-size: 14px;"> <%= @article.author.user_name%></p>
+                        <p  class="fa fa-calendar-check-o" style="font-size: 14px;"> <%= @article.created_at.strftime("%b %d, %Y")%></p>
+                     </div> 
+             </div>    
+             <div class="show-desc">
+               <%= @article.body %> 
+             </div>
+             
+             <div class="author">
+            
+                  <span style=" color: black;">~</span> <%= link_to  @article.author.user_name, author_profile_path(@article) %>
+             </div>
+             <div class="edit">
+               
+               <% if author_signed_in? && @article.author_id == current_author.id %>
+             <%=link_to 'edit',"#edit", "data-toggle" => "modal", :class => 'btn btn-small'%>               
+                <%= link_to 'Delete',article_path(@article), method: :Delete %>
+                <% end %>
+            </div>
+             <span>
+               <i class="fa fa-comment" style="font-size:20px;padding: 18px;"><%= (@article.comments.size) %> </i> 
+              </span> 
+
+              <div class="comment" style=" color: black;">
+                    <%= render partial:'articles/comment',collection: @article.comments %>
+              </div>
+              <div class="form-comment">
+                  <% if author_signed_in? %>
+                    <%= render partial: 'comments/form' %>
+                   <% end %>
+             </div>
+   
+
+
+
+      </div>
+   
+         <% @articles.each do |article| %>
+            <div class="col-md-3">
+               <a href="<%=article_path(article.id)%>">
+                     <%= image_tag article.photo.url(:medium),:class => "img-responsive index-image"%></a> 
+                     <div class="sho-text">
+                         <%= article.title %>
+                     </div>  
+                      </div>    
+            <% end %>
+      
+    </div><!-- row -->
+ </div>  <!-- container -->
+
+
+
+
+
+
+  <!--<div class="tag" style="text-align :center"><p>Tags:
+    <% @article.tags.each do |tag| %>
+    <%= link_to tag.name,tag_path(tag) %>
+    <% end %>
+   </p></div>-->
+

@@ -1,0 +1,84 @@
+<div class="panel">
+  
+  <div class="panel-heading">
+    <div class="panel-title"><h4 style="margin:10px;">CREATE ARTICLE</h4></div>
+  </div><!--.panel-heading-->
+  <div class="panel-body">
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="form-content">
+
+
+      <div class="form-group row">
+       <label class="control-label col-md-3">Title</label>
+                  <div class="col-md-5">
+                    <div class="inputer">
+                      <div class="input-wrapper">
+                      <%= f.text_field :title, placeholder:"Title",:class=>"form-control" %>
+                      </div>
+                    </div>
+                  </div>
+        
+
+       </div><!--.form-group-->
+    
+
+      <div class="form-group row">
+       <label class="control-label col-md-3">Description</label>
+                  <div class="col-md-5">
+                    <div class="inputer">
+                      <div class="input-wrapper">
+                     <%= f.text_field :body, placeholder: "Description", :class=>"form-control" %>
+                      </div>
+                    </div>
+                  </div>
+     </div><!--.form-group-->
+
+
+  <div class="form-group row">
+    <label class="control-label col-md-3"> Choose an image</label>
+    <div class="col-md-5">
+
+      <div class="input-wrapper">
+        <%= f.file_field :image %>
+      </div>
+
+    </div>
+  </div><!--.form-group-->
+    <div class="form-buttons row">
+      <div class="row">
+        <div class=" col-md-5 col-md-offset-3">
+          <%= f.submit "Create", :class=>"btn btn-brown" %>
+
+        </div>
+
+
+
+        
+      </div>
+    </div>
+</div><!--.form-content-->
+<% end %>
+
+
+
+
+</div><!--.panel-body-->
+
+
+
+
+
+
+</div><!--.panel-->

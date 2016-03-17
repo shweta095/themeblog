@@ -1,0 +1,187 @@
+<!--<p id="notice"><%= notice %></p>
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @article.body %>
+</p>
+
+
+
+<#%= image_tag @article.image.url(:medium) %>
+<#% if user_signed_in? %>
+<#%= link_to "Edit", edit_article_path(@article.id) %>
+<#%= link_to "Delete", article_path(@article.id), method: :delete %>
+
+
+<#% end %>
+
+<#%= render partial: 'articles/comment', collection: @article.comments %>
+<#%= render partial: 'comments/form' %>-->
+
+<!--
+<h1><#%= @article.title %></h1>
+<p>
+  Tags:
+  <#% @article.tags.each do |tag| %>
+    <#%= link_to tag.name, tag_path(tag) %>
+  <#% end %>
+</p>
+<p><%= @article.body %></p>
+
+<p><#%= image_tag @article.image(:medium) %></p>
+<h3>Comments (<%= @article.comments.size %>)</h3>
+
+<#%= render partial: 'articles/comment', collection: @article.comments %>
+<#%= render partial: 'comments/form' %>
+<#%= link_to "<< Back to Articles List", articles_path %>
+
+<#% if user_signed_in? %>
+<#%  (current_user == @article.user) %>
+<#%= link_to "Edit",edit_article_path(@article)%>
+<#%= link_to "delete",@article, method: :delete,data: {confirm: "Really delete the article"} %>
+<# end %>-->
+
+
+<div class="row">
+	
+			<div class="col-md-12">
+				<div class="panel">
+
+					<div class="panel-body">
+
+						<div class="row">
+							<div class="col-md-7 col-sm-12">
+							<%= image_tag @article.image(:medium) %>
+							</div><!--.col-->
+					
+
+							<div class="col-md-5 col-sm-12">
+
+<p style="font-size: 15px;
+    font-family: sans-serif; text-align:justify; margin: 4px;"><b style="font-size:14px;">CARRYING</b> within itself a spectacular history, spanning for thousands of years the destinations for <i>Golden Triangle</i> are definitely a highlight on any tour of India. Starting with <b style="font-size:14px;">Delhi</b>, the city served as the capital for most of its history for the numerous classical kingdoms, thus bearing a heritage seldom associated with any other part of the world.</p>
+    <p style="font-size: 15px;
+    font-family: sans-serif; text-align:justify; margin: 3px; "><b style="font-size: 14px;">AGRA</b>, with it being the seat of the mighty <i>Mughal Empire</i>, is redolent with some of the most astonishing monuments reminiscing of the Golden Era, which once ruled over India.</p>
+<p style="font-size: 15px;
+    font-family: sans-serif; text-align:justify; margin: 5px;">
+<b style="font-size: 14px;">FEW</b> need the introduction to the majestic <b style="font-size: 14px;">Taj Mahal</b>, located as the bright spot on this amazing tour. However, the setting change completely with moving to Jaipur, with picturesque views of most beautiful <i>forts</i>, <i>lake palaces</i> and structures mesmerizing the heart. 
+
+
+</p>
+							
+
+					
+							</div><!--col-->
+						</div><!--.row-->
+
+
+</div>
+</div>
+</div>
+</div>
+						
+
+
+<div class="row">
+<div class="col-md-10">
+<p style="font-size: 25px;
+    text-transform: capitalize;
+    font-weight: 300;
+    margin:18px;"> comments </p>
+</div>
+</div>
+
+
+<div class="comment-sec">
+
+
+<% if user_signed_in? %>
+
+
+
+<%= render partial: 'comments/form' %>
+
+<% end %>
+
+<% if @article.comments.size %>
+
+<%= render partial: 'articles/comment', collection: @article.comments %>
+
+<% end %>
+</div>
+
+<div class="row">
+<div class="col-md-11">
+<div class="text">
+<p style="    text-align: center;
+    font-size: 25px;
+    font-family: serif;
+    padding: 10px;
+    background-color: white;
+    font-weight: 600;
+     color: #5A4949;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+">Other Articles </p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12 ">
+<% @article1.each do |art| %>
+			<div class="col-md-4">
+
+				<div class="card card-quote card-black bg-opaque5 sample-bg-image9 new-art">
+              
+
+<a href= "<%= article_path(art)%>">
+
+<%= image_tag art.image.url(), :class=>"art-image"%></a>
+					<div class="card-body text-color-white">
+						<div class="quote">
+							<i class="fa fa-quote-left"></i>
+							<p>Travel makes one modest. You see what a tiny place you occupy in the world.</p>
+							<i class="fa fa-quote-right"></i>
+						</div><!--.quote-->
+						<a href="#" class="author">Ben Garratt</a>
+					</div><!--.card-body-->
+
+				</div><!--.card-->
+
+
+			</div><!--.col-md-4-->
+<% end %>
+
+
+
+
+</div>
+</div>
+
+
+
+
+<!--
+<div class="row">
+<div class ="col-md-4 loop">
+
+<#% @article1.each do |art| %>
+
+<a href= "<#%= article_path(art)%>">
+
+<#%= image_tag art.image.url(), :class=>"art-img"%></a>
+<div class="paragh">
+<p>Featured posts</p>
+</div>
+<#% end %>
+</div>
+</div>-->
+
+
+
+
+

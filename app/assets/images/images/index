@@ -1,0 +1,69 @@
+
+
+    <div class="row rowset">
+      <div id="slider">
+        <figure>
+           <img  src="/assets/banner1.jpg" alt=""> 
+           <img src="/assets/banner2.jpg" alt="">
+           <img src="/assets/banner3.jpg" alt=""> 
+           <img src="/assets/banner4.jpg" alt="">
+        </figure> 
+       </div><!--sidder -->  
+
+       <div class="col-md-12" style="text-align: center;padding: 15px;top: 297px;width: 100%;position:absolute;">
+     
+       <p style="font-size: 43px;color: white;font-family: 'Ubuntu', sans-serif;"> WANT TO SHOW YOUR VOGUE</p>
+      <p style=" text-decoration: none;border: 0px;height: 45px;font-size: 33px;color: white;    font-family: 'Ubuntu', sans-serif;">
+        <div classno-padding col-xs-12 col-xs-offset-1
+       <%if author_signed_in? %>
+            <%= link_to "HERE WE GO!!", new_article_path() %>
+       <% else %>
+            <%= link_to "HERE WE GO!!", "#login", "data-toggle" => "modal", :class => 'btn btn-small' ,:class => 'n-article' %>
+       <% end  %></p>
+     </div>
+  </div>
+    
+
+<!--<div class="container"> 
+ <div class="row ">
+   <div class="index-row">
+     <div class="col-md-3 col-xs-12 ">
+          <% @articles.each do |article| %>
+          <%= link_to article.title, article_path(article.id)%><br>
+          <% end %>
+     </div>
+
+       
+       </div> 
+     </div>
+  </div>
+</div>
+<div>
+<p>
+    </p>
+
+</div>-->
+
+
+<div class="container ">
+   <div class="row">
+      <div class="col-md-8">
+         <% @articles.each do |article| %>
+            <div class="col-md-6 nopadding" >
+                   <a href="<%=article_path(article.id)%>">
+                       <%= image_tag article.photo.url(:medium),:class => "img-responsive index-img"%></a>
+
+
+                   <div class="data"><p><%= article.title %></p>
+                   <p class="fa fa-user" style=" font-size: 14px;"> <%= article.author.user_name%></p>
+                   <p  class="fa fa-calendar-check-o" style="font-size: 14px;"> <%= article.created_at.strftime("%b %d, %Y")%></p></div>
+           </div>
+            <% end %>
+          </div> 
+         
+     
+   <div class="col-md-4">
+     <a href="www.sonam-kapoor.net" data-toggle="popover" data-trigger="hover" data-content="Check out sonam's vogue">
+             <img style=" width:100%; font-size: 29px;  text-align: center;font-weight: 900; padding-top: 22px; font-family: 'Parisienne', cursive;" src="/assets/sonam.jpg">
+     </a>
+index
