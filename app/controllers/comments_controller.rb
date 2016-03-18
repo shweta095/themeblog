@@ -19,10 +19,12 @@ class CommentsController < ApplicationController
 
   # GET /comments/1/edit
   def edit
+  @article = Article.find(params[:article_id])
    @comment = Comment.find(params[:id])
-   @article = Article.find(params[:article_id])
-
-
+   debugger
+   respond_to do |format|
+   format.js
+ end
   end
 
   # POST /comments
@@ -37,7 +39,7 @@ class CommentsController < ApplicationController
   @comment.article_id = params[:article_id]
   @comment.user_id = current_user.id 
   @comment.save
-  #redirect_to article_path(@comment.article_id)
+
    respond_to do |format|
     format.js
    end 
@@ -50,30 +52,25 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
-
+@article = Article.find(params[:article_id])
     @comment = Comment.find(params[:id])
+    
     @comment.update(comment_params)
-     redirect_to article_path(@comment.article_id)
-    #respond_to do |format|
-      #if @comment.update(comment_params)
-        #format.html { redirect_to article_path(@article.id), notice: 'Comment was successfully updated.' }
-       # format.json { render :show, status: :ok, location: @comment }
-      #else
-        #format.html { render :edit }
-       # format.json { render json: @comment.errors, status: :unprocessable_entity }
-     #end
-    #end
+     respond_to do |format|
+      format.js
+    end
+    
   end
 
-  # DELETE /comments/1
-  # DELETE /comments/1.json
+
 
 
  def destroy
 
-    @comment = Comment.find(params[:id])
-    @article = Article.find(params[:article_id])
+ @article = Article.find(params[:article_id])
+   
     @comment.destroy
+    
     #redirect_to article_path(@comment.article_id)
     respond_to do |format|
     format.js

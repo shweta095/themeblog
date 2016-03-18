@@ -53,7 +53,7 @@
                
                 <span class="headline" style="font-size:14px"><%= link_to  article.title, article_path(article), style: "background-color: rgba(0,0,0,0.5); padding: 0px 7px;
     color: white;"%></span>
-                <button class="btn btn-floating btn-pink toggle-card-news-more"><i class="ion-android-create"></i></button>
+                
               </div>
             </div><!--.card-heading-->
             <div class="card-body">
@@ -133,7 +133,7 @@
 
   * data-nav="remove" attribute hides the active navigation border when this slide in viewport.
   -->
-  <div class="slide bg-image" data-nav="remove" style="background: url('/assets/header.jpg') fixed;">
+  <div class="slide bg-image" data-nav="remove" style="background: url('/assets/hd2.jpg') center fixed;">
 
     <div class="container">
       <div class="row">
@@ -162,7 +162,7 @@
 
     <div class="container">
 
-      <div class="slide-image-horizontal hide-on-mobile" data-bottom-top="left:-200px" data-center="left:50px"><img src="/assets/bg-features (1).jpg" alt=""></div><!--.slide-image-->
+      <div class="slide-image-horizontal hide-on-mobile" data-bottom-top="left:-200px" data-center="left:50px"><img src="/assets/ba.jpg" alt=""></div><!--.slide-image-->
 
       <div class="row">
         <div class="col-md-6 col-md-offset-6">
@@ -211,7 +211,7 @@ with a passionate community of writers and enthusiasts.</span>
 
     <div class="container">
 
-      <div class="slide-image-vertical hide-on-mobile" data-bottom-top="top:-200px" data-center-bottom="top:100px"><img src="/assets/about_video.jpg" alt=""></div><!--.slide-image-->
+      <div class="slide-image-vertical hide-on-mobile" data-bottom-top="top:-200px" data-center-bottom="top:100px"><img src="/assets/baa.jpg" alt=""></div><!--.slide-image-->
 
       <div class="row">
         <div class="col-md-6">
@@ -296,7 +296,7 @@ with a passionate community of writers and enthusiasts.</span>
     </div><!--.container-->
   </div><!--.slide-->
 
-  <div class="slide bg-pattern" style="background-image: url('/assets/patterns/sativa.png');" data-nav="slide4">
+  <div class="slide bg-pattern" style="background-image: url('/assets/sativa.png');" data-nav="slide4">
     <div class="container">
       <h3 class="text-black text-center">ABOUT US</h3>
       <p class="caption text-center">Here are some peoples, who give their full effort in making blogger and giving their best.</p>
@@ -304,7 +304,7 @@ with a passionate community of writers and enthusiasts.</span>
       <div class="row transform-bug">
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-100px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/faces/large/1.jpg" class="member-image" alt="">
+            <img src="/assets/large/1.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>Kathryn Hoffman</h5>
               <h6>CEO</h6>
@@ -319,7 +319,7 @@ with a passionate community of writers and enthusiasts.</span>
 
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-200px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/faces/large/6.jpg" class="member-image" alt="">
+            <img src="/assets/large/6.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>James Ramos</h5>
               <h6>PROJECT MANAGER</h6>
@@ -334,7 +334,7 @@ with a passionate community of writers and enthusiasts.</span>
 
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-200px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/faces/large/7.jpg" class="member-image" alt="">
+            <img src="/assets/large/7.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>William Romero</h5>
               <h6>WEB DEVELOPER </h6>
@@ -349,7 +349,7 @@ with a passionate community of writers and enthusiasts.</span>
 
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-100px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/faces/large/4.jpg" class="member-image" alt="">
+            <img src="/assets/large/4.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>Justin Bowman</h5>
               <h6>Marketing Representative</h6>
@@ -448,7 +448,7 @@ with a passionate community of writers and enthusiasts.</span>
 
 <div class="col-md-5">
 <div class="row">
-
+<%= render '/devise/registrations/new'%>
        </div>
         </div><!--.col-->
      
