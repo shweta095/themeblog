@@ -96,18 +96,11 @@
 
 
 <div class="comment-sec">
-
-
 <% if user_signed_in? %>
-
-
-
 <%= render partial: 'comments/form' %>
 
 <% end %>
-
 <% if @article.comments.size %>
-
 <%= render partial: 'articles/comment', collection: @article.comments %>
 
 <% end %>

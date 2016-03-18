@@ -27,22 +27,25 @@ class CommentsController < ApplicationController
 
   # POST /comments
   # POST /comments.json
-  def create
 
-    @comment = Comment.new(comment_params)
-    @article = Article.find(params[:article_id])
-    @comment.article_id = params[:article_id]
-    @comment.user_id=current_user.id
-    respond_to do |format|
-      if @comment.save
-        format.html { redirect_to article_path(@article.id), notice: 'Comment was successfully created.' }
-       # format.json { render :show, status: :created, location: @comment}
-      else
-        format.html { render :new }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+
+
+  def create 
+  @article = Article.find(params[:article_id])
+  @comment = Comment.new(comment_params)
+
+  @comment.article_id = params[:article_id]
+  @comment.user_id = current_user.id 
+  @comment.save
+  #redirect_to article_path(@comment.article_id)
+   respond_to do |format|
+    format.js
+   end 
+ end
+  
+
+
+
 
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
@@ -50,26 +53,36 @@ class CommentsController < ApplicationController
 
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
-    respond_to do |format|
-      if @comment.update(comment_params)
-        format.html { redirect_to article_path(@article.id), notice: 'Comment was successfully updated.' }
+     redirect_to article_path(@comment.article_id)
+    #respond_to do |format|
+      #if @comment.update(comment_params)
+        #format.html { redirect_to article_path(@article.id), notice: 'Comment was successfully updated.' }
        # format.json { render :show, status: :ok, location: @comment }
-      else
-        format.html { render :edit }
-        format.json { render json: @comment.errors, status: :unprocessable_entity }
-      end
-    end
+      #else
+        #format.html { render :edit }
+       # format.json { render json: @comment.errors, status: :unprocessable_entity }
+     #end
+    #end
   end
 
   # DELETE /comments/1
   # DELETE /comments/1.json
-  def destroy
+
+
+ def destroy
+
+    @comment = Comment.find(params[:id])
+    @article = Article.find(params[:article_id])
     @comment.destroy
+    #redirect_to article_path(@comment.article_id)
     respond_to do |format|
-      format.html { redirect_to comments_url, notice: 'Comment was successfully destroyed.' }
-      format.json { head :no_content }
+    format.js
     end
   end
+    
+
+
+ 
 
   private
     # Use callbacks to share common setup or constraints between actions.

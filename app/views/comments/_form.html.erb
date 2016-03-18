@@ -1,7 +1,7 @@
 
 
 
-<%= form_for [ @article, @comment ] do |f| %>
+<%= form_for [ @article, @comment ], remote:true do |f| %>
 
   <% if @comment.errors.any? %>
     <div id="error_explanation">
