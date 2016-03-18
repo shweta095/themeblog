@@ -1,167 +1,99 @@
-<!--<p id="notice"><%= notice %></p>
+   <%if author_signed_in?%>
 
-<h1>Listing Articles</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-   
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <#% @articles.each do |article| %>
-      <tr>
-        <td><#%= link_to article.title,article_path(article) %></td>
-          <td><#%= image_tag article.image.url(:medium) %></td>
-          
-          <td> <#%= article.created_at.strftime("%b %d, %Y")%></td>
+    <div class="display-animation">
+ 
+      
+      <div class="col-md-7 col-xs-12" style="margin-right: 90px;">
+      
+      <h5 style="
+    font-weight: 600;
         
-        <td><#%= article.body %></td>
-        <td><#%= link_to 'Show', article %></td>
-        <td><#%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><#%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td
-  
-    <%#end %>-->
+    ">TRENDING</h5>
+    <hr>
+      <%@articles.reverse_each do |article|%>
+        <div class="card card-event">
+          <div class="card-heading">
+          <%= image_tag article.photo.url(:medium), class: "img-responsive", style: "width:100%" %>
+          </div><!--.card-heading-->
 
-
-
-<% if user_signed_in? %>
-
-
- <div class="content row head-image">
- <div class="col-md-12">
-
- <div class="index-imge">
- <img src="/assets/ma.jpg" width="100%">
- </div>
- </div>
- </div>
-
-
-
-    <div class="row">
-      <div class="col-md-12">
-        <h1 style="font-size: 25px;
-    margin-top: 20px;
-    text-align: center;
-    font-family: 'RobotoDraft', sans-serif;
-    font-weight: 500;
-     color: #5A4949;
-    letter-spacing:2px;
-    word-spacing:2px;
-    padding:12px;
-        text-transform: uppercase;
-    border-bottom: 2px solid black;">Welcome to Incredible India</h1>
-      </div><!--.col-->
-    </div><!--.row-->
-
-    <div class="row">
-      <div class="col-md-12">
-
-<p style="font-size: 17px; text-align: justify; font-family: 'RobotoDraft', sans-serif; ">        
-<b>TOURISM</b> in India has shown a phenomenal growth in the past decade. One of the reasons is that the Ministry of tourism, India has realized the immense potential of tourism in India during vacations. India travel tourism has grown rapidly with a great influx of tourists from all across the globe who have been irresistibly attracted to the rich culture, heritage, and <i style="letter-spacing:1px;">INCREDIBLE NATURAL BEAUTY OF INDIA.</i></p>
-
-<p style="font-size: 17px; text-align: justify; font-family: 'RobotoDraft', sans-serif;"> 
-<b>INDIA TOURISM</b> with its foggy hill stations, captivating beaches, historical monuments, golden deserts, serene backwaters, pilgrimage sites, rich wildlife, and colourful fairs capture the heart of every tourist. In addition, a variety of festivals, lively markets, vibrant lifestyle, and traditional Indian hospitality, will make your experience as an india tourist truly unforgettable and fantastic.</p>
-
-<p style="font-size: 17px; text-align: justify; font-family: 'RobotoDraft', sans-serif;"> Travel through the lovely Indian states and discover closely the resplendent colors and rich cultural locales of this incredible land. Our India tourism guide provides you a glimpse of travel and tourism in india ,india tourism information about south india tourism, north India tourism, and all the major tourist destinations, and tourism services of India.</p>
-
-
-        
-        
-
-      </div><!--.col-->
-    </div><!--.row-->
-<div class="row">
-<div class="col-md-12">
-
-    <p style="text-align: center;
-    font-weight: 500;
-    background-color: white;
-    padding: 20px;
-    font-family: inherit;
-    font-size: 20px;
-    word-spacing: 3px;
-    letter-spacing: 1px;
-    margin-left: 11px;
-    margin-right: 11px;
-    text-transform: uppercase;
-       color: #5A4949;"> Article About Famous Spots In India</p>
-</div>
-</div>
-
-  <div class="row article-title">
-      <% @articles.each do |article| %>
-      <div class="col-md-6">
-        <div class="card card-event card-clickable">
-
-          <a href= "<%= article_path(article)%>">
-
-             <%= image_tag article.image.url(:medium), :class=>"imageee1"%></a>
-      <!--.card-heading-->
-
-
-
-<div class="card-body">
-
-<div class="calendar">
-              <div class="month">
-             <%= article.created_at.strftime("%B -%d")%></div>
-              <div class="date">
-             <%= article.created_at.strftime("%Y")%></div>
+          <div class="card-body">
+            <div class="calendar">
+              <div class="month"><%= l article.created_at, :format => :sample %></div>
+              <div class="date" style="font-size:14px"><%= l article.created_at, :format => :sample1 %></div>
             </div><!--.calendar-->
-        
-                <%= link_to article.title,article_path(article),:class=>"art-titles" %> 
-
-                              <p style="font-size: 14px; margin: 15px; text-align: justify; font-family:  sans-serif; font-weight: lighter; letter-spacing: 1px;
-    word-spacing: 1px;">The Taj Mahal was designated as a UNESCO World Heritage Site in 1983 for being "the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage". Described by the Nobel laureate, Rabindranath Tagore, as "the tear-drop on the cheek of time", it is regarded by many as the best example of Mughal architecture and a symbol of India's rich history. The Taj Mahal attracts 7–8 million visitors a year. In 2007, it was declared a winner of the New7Wonders of the World </p>
-
+            <h4><%= link_to article.title, article_path(article), style: "font-size:17px"%></h4>
+            <p><%= truncate article.body, length: 260, style: "font-size:13px" %></p>
           </div><!--.card-body-->
 
-          
-
-          <div class="clickable-button">
-            <div class="layer bg-red"></div>
-            <a class="btn btn-floating btn-red initial-position floating-open"><i class="ion-android-more-horizontal"></i></a>
-          </div>
-
-          <div class="layered-content bg-red">
-            <div class="overflow-content">
-              <h5 style="color: black; font-weight: 400; margin-left: 28px;">TOURISM OF INDIA</h5>
-              <p style="text-align: justify;
-    color: black;
-    font-weight: 100;
-    font-size: 15px;
-    font-family: -webkit-body; letter-spacing: 1px; margin: 30px;">The Taj Mahal was designated as a UNESCO World Heritage Site in 1983 for being "the jewel of Muslim art in India and one of the universally admired masterpieces of the world's heritage". Described by the Nobel laureate, Rabindranath Tagore, as "the tear-drop on the cheek of time", it is regarded by many as the best example of Mughal architecture and a symbol of India's rich history. The Taj Mahal attracts 7–8 million visitors a year. In 2007, it was declared a winner of the New7Wonders of the World </p>
-            </div><!--.overflow-content-->
-            <div class="clickable-close-button">
-              <a class="btn btn-floating initial-position floating-close"><i class="ion-android-close"></i></a>
-            </div>
-          </div>
-
+          <div class="card-footer">
+          <a class="btn btn-social-icon btn-facebook pull-left" style="margin-right: 10px; font-size: 11px;"><i class="fa fa-facebook"></i></a>
+           <a class="btn btn-social-icon btn-twitter pull-left" style="margin-right: 10px; font-size: 11px;"><i class="fa fa-twitter"></i></a> 
+           
+                <a class="btn btn-social-icon btn-google-plus pull-left" style="margin-right: 10px; font-size: 11px;"><i class="fa fa-google-plus"></i></a>
+                
+            <button type="button" class="btn btn-sm btn-green btn-flat pull-right"><%= link_to 'READ', article_path(article)%></button>
+          </div><!--.card-footer-->
         </div><!--.card-->
+        <%end%>
       </div><!--.col-md-6-->
 
-      <% end %>
-      </div>
+      
+<%= form_tag(articles_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Articles" %>
+<%= submit_tag "Search" %>
+<% end %>
+            
+        <div class="col-md-4 col-xs-12">
+        <h5 style="
+    font-weight: 600;">POPULAR POSTS</h5>
+        <hr>
+        <%@articles.each do |article|%>
+          <div class="card tile card-news-more material-animate" style="height: 162px
+   ">
+            <div class="card-heading bg-image bg-opaque5">
+            <%= image_tag article.photo.url(:medium), class: "img-responsive" , style: "height:auto"%>
+              <div class="heading-content">
+               
+                <span class="headline" style="font-size:14px"><%= link_to  article.title, article_path(article), style: "background-color: rgba(0,0,0,0.5); padding: 0px 7px;
+    color: white;"%></span>
+                <button class="btn btn-floating btn-pink toggle-card-news-more"><i class="ion-android-create"></i></button>
+              </div>
+            </div><!--.card-heading-->
+            <div class="card-body">
+              <p><%=article.body%></p>
+            </div><!--.card-body-->
+          </div><!--.card-->
+          <%end%>
+        </div><!--.col-->
+      
+   <div class="col-md-4"><div class="fb-page" data-href="https://www.facebook.com/Poplify/" data-tabs="timeline" data-width="500px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Poplify/"><a href="https://www.facebook.com">Facebook</a></blockquote></div></div></div>  
+   <div class="col-md-4" style="margin-top: 35px;">
+  <a class="twitter-timeline" data-dnt="true" href="https://twitter.com/Poplify" data-widget-id="710097062130352129">Tweets by @Poplify</a></div>
 
-<% else %>
 
-<div class="one-page">
+  <!--<div class="layer-container">
 
-  <!--
+    
+
+  </div><!- .layer-container-->
+
+  <!-- BEGIN GLOBAL AND THEME VENDORS -->
+
+<!--- static homepage-->
+
+<%else%>
+
+<!--
   * To change the hover link color and active selector border color,
   you can combine the header div with header-*(material-colors).
   For ex: <div class="header header-red"> or <div class="header header-teal">
   -->
+  <div class="one-page">
   <div class="header">
     <div class="container">
 
-      <div class="logo">
-        <img src="../../assets/logo.jpg" alt="Pleasure">
+      <div class="logog">
+       <h2 style="color:#3E50B4; font-size:26px; margin-top:0px; font-weight: 400;"><a href="/articles">POPLOGGER</a></h2>
       </div><!--.logo-->
 
       <!--
@@ -175,13 +107,15 @@
           <li data-anchor="slide3" data-nav-link>OVERVIEW</li>
           <li data-anchor="slide4" data-nav-link>ABOUT US</li>
           <li data-anchor="slide5" data-nav-link>CONTACT</li>
+          <li data-anchor="slide6" data-nav-link>SIGN UP</li>
+          <li data-toggle="modal" data-target="#myModal"> SIGN IN</li>
+          <a href="authors/auth/facebook"><li> SIGN IN with fb</li></a>
+
         </ul>
         <div class="selector"></div>
       </div><!--.animated-selector-->
 
-      <div class="btn-action">
-        <a href="<%= user_session_path %>">SIGN IN</a>
-      </div><!--.btn-action-->
+      
 
       <div class="hamburger-btn"></div><!--.hamburger-btn-->
 
@@ -198,26 +132,24 @@
 
   * data-nav="remove" attribute hides the active navigation border when this slide in viewport.
   -->
-  <div class="slide bg-image" data-nav="remove" style="background-image: url('/assets/hd2.jpg');">
+  <div class="slide bg-image" data-nav="remove" style="background: url('/assets/header.jpg') fixed;">
 
     <div class="container">
       <div class="row">
         <div class="col-md-9">
-          <h1 class="text-indigo text-light-shadow">WONDERING <span data-typer-targets="UNIQUE, ADVANCED, ESSENTIAL">TRAVELS</span><br>WONDERING THOUGHTS</h1>
-          <p class="caption text-light-shadow">Pleasure offers lots of cards, plugins, color options and various layouts.<br>Buy it on ThemeForest and create your pages today!</p>
+          <h1 class="text-white text-light-shadow">GET THE MOST <span style="background-color: #3E50B4;" data-typer-targets="UNIQUE, ADVANCED, ESSENTIAL">ADVANCED</span><br>ARTICLES WITH POPLOGGER.</h1>
+          <p class="caption text-white text-light-shadow">Poplogger offers lots of technology, fashion, lifestyle related articles.<br><a class="btn btn-wonderush-white" data-anchor="slide6" data-nav-link>JOIN US</a></p>
         </div><!--.col-->
       </div><!--.row-->
 
-      <div class="row">
-        <div class="col-md-12">
-          <ul class="store-list">
-            <li><a href="javascript:;"><img src="/assets/on-appstore.png" alt=""></a></li>
-            <li><a href="javascript:;"><img src="/assets/on-googleplay.png" alt=""></a></li>
-          </ul>
-        </div><!--.col-->
-      </div><!--.row-->
+      
 
     </div><!--.container-->
+    <h5 style="color: white;
+    text-align: center;
+    position: relative;
+    top: 75px;
+    font-weight: 400;">EXPLORE MORE</h5>
     <a class="btn btn-large btn-floating btn-indigo btn-next btn-next-center" data-anchor="slide1" data-nav-link><i class="ion-chevron-down"></i></a>
 
   </div><!--.slide-hero-->
@@ -229,38 +161,39 @@
 
     <div class="container">
 
-      <div class="slide-image-horizontal hide-on-mobile" data-bottom-top="left:-200px" data-center="left:50px"><img src="/assets/ba.jpg" alt="" width="100%" height="450px"></div><!--.slide-image-->
+      <div class="slide-image-horizontal hide-on-mobile" data-bottom-top="left:-200px" data-center="left:50px"><img src="/assets/bg-features (1).jpg" alt=""></div><!--.slide-image-->
 
       <div class="row">
         <div class="col-md-6 col-md-offset-6">
           <h2 class="text-black">FEATURES</h2>
-          <p class="c">Collaboratively administrate empowered markets via plug-and-play networks.</p>
+          <p class="caption" style="margin-bottom:25px">Several Features Which Make You To Join <a href="/articles">POPLOGGER</a>.</p>
           <ul class="list-vertical">
             <li>
               <div class="list-icon text-indigo">
-                <i class="ion-tshirt-outline"></i>
+                <i class="ion-ios-compose-outline"></i>
               </div><!--.list-icon-->
               <div class="list-info">
-                <h4 class="text-indigo">Responsive</h4>
-                <span>Dynamically procrastinate B2C users after installed base benefits.</span>
+                <h4 class="text-indigo">Create Articles</h4>
+                <span>On POPLOGGER you can write or find articles on every topic.</span>
               </div><!--.list-info-->
             </li>
             <li>
-             <div class="list-icon text-green">
+              <div class="list-icon text-green">
                 <i class="ion-earth"></i>
               </div><!--.list-icon-->
               <div class="list-info">
-                <h4 class="text-green">Colourful</h4>
-                <span>Dramatically visualize customer directed convergence without revolutionary ROI.</span>
+                <h4 class="text-green">Global</h4>
+                <span>POPLOGGER community have writer from all over the country, so no need to worry about any language restrictions.</span>
               </div><!--.list-info-->
             </li>
             <li>
               <div class="list-icon text-red">
-                <i class="ion-bag"></i>
+                <i class="ion-android-wifi"></i>
               </div><!--.list-icon-->
               <div class="list-info">
-                <h4 class="text-red">Functional</h4>
-                <span>Efficiently unleash cross-media information without cross-media value.</span>
+                <h4 class="text-red">Connect</h4>
+                <span>Connect
+with a passionate community of writers and enthusiasts.</span>
               </div><!--.list-info-->
             </li>
           </ul>
@@ -277,38 +210,40 @@
 
     <div class="container">
 
-      <div class="slide-image-vertical hide-on-mobile" data-bottom-top="top:-200px" data-center-bottom="top:100px"><img src="/assets/baa.jpg" alt="" width="100%" height="500px"></div><!--.slide-image-->
+      <div class="slide-image-vertical hide-on-mobile" data-bottom-top="top:-200px" data-center-bottom="top:100px"><img src="/assets/about_video.jpg" alt=""></div><!--.slide-image-->
 
       <div class="row">
         <div class="col-md-6">
-          <h2 class="text-black">PLANS</h2>
-          <p class="caption1">Quickly maximize timely deliverables for real-time schemas.</p>
+          <h2 class="text-black">What can you do in Poplogger?</h2>
+         
           <ul class="list-vertical">
             <li>
               <div class="list-icon text-deep-purple">
-                <i class="ion-images"></i>
+                <i class="ion-beer"></i>
               </div><!--.list-icon-->
               <div class="list-info">
-                <h4 class="text-deep-purple">New Layouts</h4>
-                <span>Completely synergize resource sucking relationships via premier niche markets.</span>
+                <h4 class="text-deep-purple">Walk someone through your most delicious recipe 
+    .</h4>
+               
               </div><!--.list-info-->
             </li>
             <li>
               <div class="list-icon text-teal">
-                <i class="ion-calendar"></i>
+                <i class="ion-chatbubbles"></i>
               </div><!--.list-icon-->
               <div class="list-info">
-                <h4 class="text-teal">AngularJS</h4>
-                <span>Dramatically maintain clicks-and-mortar solutions without functional solutions.</span>
+                <h4 class="text-teal">Start a conversation about something you care about!</h4>
+                
               </div><!--.list-info-->
             </li>
             <li>
               <div class="list-icon text-amber">
-                <i class="ion-happy-outline"></i>
+                <i class="ion-android-bicycle"></i>
               </div><!--.list-icon-->
               <div class="list-info">
-                <h4 class="text-amber">Material Phonegap</h4>
-                <span>Professionally cultivate one-to-one customer service with robust ideas. </span>
+                <h4 class="text-amber">Bring someone along in your travels with a guide
+        </h4>
+                
               </div><!--.list-info-->
             </li>
           </ul>
@@ -320,37 +255,37 @@
     </div><!--.container-->
   </div><!--.slide-->
 
-  <div class="slide bg-image-with-shadow" style="background-image: url('/assets/md.jpg'); " data-nav="slide3">
+  <div class="slide bg-image-with-shadow" style="background-image: url('/assets/bg-overview.jpg'); " data-nav="slide3">
     <div class="container">
-      <h3 class="text-white text-center" style="color: snow;">OVERVIEW</h3>
-      <p class="caption text-white text-center">Dynamically innovate resource-leveling customer service for state of the art customer service.</p>
+      <h3 class="text-white text-center">LETS SEE!</h3>
+      <p class="caption text-white text-center">How poploggers works on POPLOGGER. How an article take place in POPLOGGER.</p>
 
       <ul class="row list-horizontal white">
         <li class="col-sm-4" data-bottom-top="top:-50px" data-center="top:0px">
           <div class="list-icon">
-            <i class="ion-radio-waves"></i>
+            <i class="ion-ios-lightbulb"></i>
           </div><!--.list-icon-->
           <div class="list-info">
-            <h4>GITHUB SUPPORT</h4>
-            <span>Collaboratively administrate empowered markets via plug-and-play networks.</span>
+            <h4>SOMETHING NEW POPS</h4>
+            <span>Everytime when something new pops in users mind, they login to POPLOGGER.</span>
           </div><!--.list-info-->
         </li>
         <li class="col-sm-4" data-bottom-top="top:-50px" data-center="top:0px">
           <div class="list-icon">
-            <i class="ion-search"></i>
+            <i class="ion-ios-compose-outline"></i>
           </div><!--.list-icon-->
           <div class="list-info">
-            <h4>KEEP UPDATED</h4>
-            <span>Dynamically procrastinate B2C users after installed base benefits.</span>
+            <h4>WRITE IT</h4>
+            <span>Then users post that as a article for other peoples to see it, read it and review it.</span>
           </div><!--.list-info-->
         </li>
         <li class="col-sm-4" data-bottom-top="top:-50px" data-center="top:0px">
           <div class="list-icon">
-            <i class="ion-map"></i>
+            <i class="ion-chatboxes"></i>
           </div><!--.list-icon-->
           <div class="list-info">
-            <h4>CUSTOMER SUPPORT</h4>
-            <span>Dramatically visualize customer directed convergence without revolutionary ROI.</span>
+            <h4>INTERACT TO OTHERS</h4>
+            <span>Now other user read that article and if they like article, interaction begin between them and they get another new friend!</span>
           </div><!--.list-info-->
         </li>
       </ul>
@@ -360,18 +295,18 @@
     </div><!--.container-->
   </div><!--.slide-->
 
-  <div class="slide bg-pattern" style="background-image: url('/assets/wall.jpg');" data-nav="slide4">
+  <div class="slide bg-pattern" style="background-image: url('/assets/patterns/sativa.png');" data-nav="slide4">
     <div class="container">
       <h3 class="text-black text-center">ABOUT US</h3>
-      <p class="caption text-center">Our company is located in Istanbul, Turkey and London, England.</p>
+      <p class="caption text-center">Here are some peoples, who give their full effort in making POPLOGGER and giving their best.</p>
 
       <div class="row transform-bug">
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-100px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/large/1.jpg" class="member-image" alt="">
+            <img src="/assets/faces/large/1.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>Kathryn Hoffman</h5>
-              <h6>Web Developer</h6>
+              <h6>CEO</h6>
               <ul class="social-links list-inline">
                 <li><a href="#"><i class="fa fa-github"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -383,10 +318,10 @@
 
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-200px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/large/6.jpg" class="member-image" alt="">
+            <img src="/assets/faces/large/6.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>James Ramos</h5>
-              <h6>Communications Liason</h6>
+              <h6>PROJECT MANAGER</h6>
               <ul class="social-links list-inline">
                 <li><a href="#"><i class="fa fa-github"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -398,10 +333,10 @@
 
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-200px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/large/7.jpg" class="member-image" alt="">
+            <img src="/assets/faces/large/7.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>William Romero</h5>
-              <h6>Division Agent</h6>
+              <h6>WEB DEVELOPER </h6>
               <ul class="social-links list-inline">
                 <li><a href="#"><i class="fa fa-github"></i></a></li>
                 <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -413,7 +348,7 @@
 
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-100px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/large/4.jpg" class="member-image" alt="">
+            <img src="/assets/faces/large/4.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>Justin Bowman</h5>
               <h6>Marketing Representative</h6>
@@ -427,7 +362,7 @@
         </div><!--.col-md-3-->
 
       </div><!--.row-->
-
+ <a class="btn btn-large btn-floating btn-indigo btn-next btn-next-center" data-anchor="slide5" data-nav-link><i class="ion-chevron-down"></i></a>
     </div><!--.container-->
 
   </div><!--.slide-->
@@ -479,6 +414,43 @@
           <button type="submit" class="btn btn-teal pull-right">SEND</button>
         </div><!--.col-->
       </div><!--.row-->
+<a class="btn btn-large btn-floating btn-amber btn-next btn-next-right" data-anchor="slide6" data-nav-link><i class="ion-chevron-down"></i></a>
+    </div><!--.container-->
+
+  </div><!--.slide-->
+  <div class="slide" style="background-color:#F7F8F8" data-nav="slide6">
+
+    <div class="container">
+      <h3 class="text-black text-center">SIGN UP</h3>
+      <p class="caption text-center">It's free and always will be. </p>
+        <div class="col-md-7 col-xs-12">
+      <p class="signp" style="margin-bottom:25px">WHY JOIN POPLOGGER <span data-typer-targets="FAMILY, COMMUNITY">FAMILY.</p>
+     
+      <ul class="sign_up_box ">
+        <li>
+          Access hundreds of articles to read every time
+        </li>
+        <li>
+          Book as many new articles as you like for a flat fee
+        </li>
+        <li>
+          Enjoy a variety of experiences, articles and events
+        </li>
+        <li>
+          Meet new people and share great times
+        </li>
+        <li>
+          Not the commitment type? Cancel account anytime
+        </li>
+      </ul>
+</div><!--.col-->
+
+<div class="col-md-5">
+<div class="row">
+<%= render '/devise/registrations/new'%>
+       </div>
+        </div><!--.col-->
+     
 
     </div><!--.container-->
 
@@ -493,13 +465,10 @@
         <li><a href="javascript:;" class="pinterest"><i class="ion-social-github"></i></a></li>
       </ul>
 
-      <div class="copyright v-text">TEAMFOX &copy; 2015</div>
+      <div class="copyright v-text">POPLOGGER &copy; 2015</div>
 
     </div><!--.container-->
   </div><!--.footer-->
-
   </div>
-<% end %>
 
-
-
+  <%end%>
