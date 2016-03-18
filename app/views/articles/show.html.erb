@@ -3,7 +3,15 @@
 
 
 
+
 <div class="card card-event">
+
+<% if user_signed_in? %>
+<%  (current_user == @article.user) %>
+<%= link_to "Edit",edit_article_path(@article)%>
+<%= link_to "delete",@article, method: :delete,data: {confirm: "Really delete the article"} %>
+<% end %>
+
 
 					<div class="card-heading bg-image">
 					<h4 style="margin-left: 10px;
