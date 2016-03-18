@@ -17,12 +17,26 @@
     </div>
   <% end %>
 
-    <div class="form-content">
+
+  <div class="row">
+   <div class="col-md-4 form-group ">
+                     <div class="fileinput fileinput-new align-cntr" data-provides="fileinput">
+                      <div class="fileinput-preview thumbnail " style="width: 300px; height: 250px;">
+                      </div>
+                     <div>
+                      <span class="btn btn-default btn-file "><span class="fileinput-new">Select Image</span><%= f.file_field :image%><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
+                      <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                     </div>
+                    </div> 
+  </div>
+
+
+    <div class="col-md-8 form-content">
 
 
       <div class="form-group row">
-       <label class="control-label col-md-3">Title</label>
-                  <div class="col-md-5">
+       
+                  <div>
                     <div class="inputer">
                       <div class="input-wrapper">
                       <%= f.text_field :title, placeholder:"Title",:class=>"form-control" %>
@@ -35,8 +49,8 @@
     
 
       <div class="form-group row">
-       <label class="control-label col-md-3">Description</label>
-                  <div class="col-md-5">
+     
+                  <div >
                     <div class="inputer">
                       <div class="input-wrapper">
                      <%= f.text_field :body, placeholder: "Description", :class=>"form-control" %>
@@ -46,28 +60,15 @@
      </div><!--.form-group-->
 
 
-  <div class="form-group row">
-    <label class="control-label col-md-3"> Choose an image</label>
-    <div class="col-md-5">
-
-      <div class="input-wrapper">
-        <%= f.file_field :image %>
-      </div>
-
-    </div>
-  </div><!--.form-group-->
-    <div class="form-buttons row">
+ 
+    <div class="form-buttons row mb">
       <div class="row">
-        <div class=" col-md-5 col-md-offset-3">
-          <%= f.submit "Create", :class=>"btn btn-brown" %>
-
-        </div>
-
-
-
-        
+        <div class=" col-md-8 col-md-offset-8">
+          <%= f.submit "Create", :class=>"btn btn-brown", style: 'margin-top:125px;' %>
+        </div> 
       </div>
     </div>
+
 </div><!--.form-content-->
 <% end %>
 

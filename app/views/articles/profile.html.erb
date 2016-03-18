@@ -1,98 +1,67 @@
-<!--
-<%#= image_tag @profile1.image.url%>
-<%#= @profile.title %>
+<div class="content">
 
-<div class="row">
-<div class="col-md-12">
-
-
-        <p><i class="fa fa-user" style="font-size:22px;"><%= @profile1.user_name %></i></p>
-       <p><i class="fa fa-envelope" style="font-size:22px;"> <%= @profile1.email %></i></p>
-         <p><i class="fa fa-inbox" style="font-size:22px;"><%= @profile1.articles.size %></i></p>
-
-      
-         </div>
-         </div>-->
-
-
-	<div class="content">
-
-		<div class="page-header full-content parallax" style="height: 500px; overflow: hidden">
-			<div class="my class" style="background: url('/assets/picjumbo/large/24.jpg') 50% 50%; background-size: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;">
+		<div class="page-header full-content" style="height: 600px; overflow: hidden">
+			<div style="background: url('/assets/picjumbo/large/24.jpg') 50% 50%; background-size: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;">
 			</div>
-
 
 			<div class="profile-info">
 				<div class="profile-photo">
-					<%= image_tag @profile1.image.url() %>
+					<%= image_tag @profile1.image.url(:medium), class: 'profile-photo' %>
 				</div><!--.profile-photo-->
 				<div class="profile-text light">
 					<%= @profile1.user_name %>
-				
+					<span class="caption">Web Developer</span>
 				</div><!--.profile-text-->
 			</div><!--.profile-info-->
 
-			
+			<div class="row">
+				<div class="col-sm-6">
+					<h1><%= @profile1.user_name %></h1>
+				</div><!--.col-->
+				<div class="col-sm-6">
+					<ol class="breadcrumb">
+						<i class="fa fa-pencil" style="font-size:20px; color:black;"></i>
+						<%= link_to "Edit Profile",edit_user_registration_path, style: 'color:black' %> 
+					</ol>
+				</div><!--.col-->
+			</div><!--.row-->
 
 			<div class="header-tabs scrollable-tabs sticky">
 				<ul class="nav nav-tabs tabs-active-text-white tabs-active-border-yellow">
-					<li class="active"><a href="#article" data-toggle="tab" class="btn-ripple">Articles</a></li>
+					<li class="active"><a href="#timeline" data-toggle="tab" class="btn-ripple">Articles</a></li>
 					<li><a href="#about" data-toggle="tab" class="btn-ripple">About</a></li>
 					<li><a href="#photos" data-toggle="tab" class="btn-ripple">Photos</a></li>
+					
 				</ul>
 			</div>
 
-  
-                   <div class="row">
-				<div class="col-sm-6">
-					
-				</div><!--.col-->
-				<div class="col-sm-6">
-				<% if user_signed_in? %>
-           
-					<ol class="breadcrumb">
-						
-						
-						<i class="fa fa-pencil" style="font-size:20px; margin-right:-20px; color:white;"></i> 
-						<%= link_to "Edit Profile",edit_user_registration_path, style: 'color:black' %> 
-						
-					</ol>
-					<% end %>
-				</div><!--.col-->
-			</div><!--.row-->
-        </div><!--.page-header-->
 
-		<div class="row user-profile">
-			<div class="col-md-12 ssss">
+		</div><!--.page-header-->
+
+		<div class="row user-profile">		
+			<div class="col-md-12 col-xs-12">
 				<div class="tab-content without-border">
-					<div id="article" class="tab-pane active">
-
-
-
-                                 <% @profile1.articles.each do |article| %>
-
-
-                                  <div class="col-md-4">
-								<div class="card tile card-post">
-									<div class="card-heading">
-										<p><%= article.title %></p>
-                                                      <%= image_tag article.image.url(:medium),:class=>"new-img" %>
-										
-								<p style="padding: 10px; font-size: 10px;">CREATED BY - <%= @profile1.user_name %></p><p style="font-size: 11px; margin-left: 12px;
-    margin-top: -15px;"><%= article.created_at.strftime("%b %d, %Y")%></p>
-									</div><!--.card-heading-->
-														
+					<div id="timeline" class="tab-pane active">
+						<div class="row">
+							<% @profile1.articles.each do |a| %>
+							<div class="col-md-3 col-xs-12">
+								<div class="card card-deep-purple card-image bg-image" style="background-image:url(<%= a.image %>); background-size:cover;">
+									<div class="context">
+										<span class="text-title"><%= a.title %></span>
+									</div>	
 								</div><!--.card-->
-							</div><!--.col-md-4-->
-							<% end %>
-             </div><!--#timeline.tab-pane-->
-
+							</div><!--.col-->
+							<% end %>	
+						</div>
+					
+					</div><!--#timeline.tab-pane-->
 
 					<div id="about" class="tab-pane">
 						<div class="row">
 							<div class="col-md-3 col-xs-12">
 								<ul class="nav nav-tabs borderless vertical">
 									<li class="active"><a href="#about_overview" data-toggle="tab">Overview</a></li>
+									
 								</ul>
 							</div><!--.col-md-3-->
 							<div class="col-md-9 col-xs-12">
@@ -149,23 +118,14 @@
 
 					<div id="photos" class="tab-pane">
 						<div class="row image-row">
-						<% @profile1.articles.each do |article| %>
+						<% @profile1.articles.each do |a| %>
 							<div class="col-xs-12 col-sm-8 col-md-6 col-lg-3">
-								<%= image_tag article.image.url, class: 'card card-deep-purple card-image bg-image'  %>
+								<%= image_tag a.image.url, class: 'card card-deep-purple card-image bg-image'  %>
 							</div><!--.col-->
 						<% end %>
 						</div><!--.row-->
 					</div><!--#photos.tab-pane-->
-
-					</div><!--.col-->
-				</div><!--.tab-pane #settings-->
-
-			</div><!--.row-->
-		</div><!--.user-layer-->
-		<!-- END OF USER LAYER -->
-
-	</div><!--.layer-container-->
-
-
-
-
+				</div><!--.tab-content-->
+			</div><!--.col-->
+		</div><!--.row-->
+	</div><!--.content-->
