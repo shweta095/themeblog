@@ -1,6 +1,6 @@
 <!--
-<%= image_tag @profile1.image.url%>
-<%= @profile.title %>
+<%#= image_tag @profile1.image.url%>
+<%#= @profile.title %>
 
 <div class="row">
 <div class="col-md-12">
@@ -15,7 +15,7 @@
          </div>-->
 
 
-	<div class="content user-profile-img">
+	<div class="content">
 
 		<div class="page-header full-content parallax" style="height: 500px; overflow: hidden">
 			<div class="my class" style="background: url('/assets/picjumbo/large/24.jpg') 50% 50%; background-size: cover; width: 100%; height: 100%; position: absolute; left: 0; top: 0;">
@@ -39,7 +39,6 @@
 					<li class="active"><a href="#article" data-toggle="tab" class="btn-ripple">Articles</a></li>
 					<li><a href="#about" data-toggle="tab" class="btn-ripple">About</a></li>
 					<li><a href="#photos" data-toggle="tab" class="btn-ripple">Photos</a></li>
-					
 				</ul>
 			</div>
 
@@ -55,7 +54,7 @@
 						
 						
 						<i class="fa fa-pencil" style="font-size:20px; margin-right:-20px; color:white;"></i> 
-						<%= link_to "Edit Profile",edit_user_registration_path %> 
+						<%= link_to "Edit Profile",edit_user_registration_path, style: 'color:black' %> 
 						
 					</ol>
 					<% end %>
@@ -87,41 +86,6 @@
 							</div><!--.col-md-4-->
 							<% end %>
              </div><!--#timeline.tab-pane-->
-				
-
-					<div id="about" class="tab-pane">
-						<div class="row">
-							
-							<div class="col-md-10 col-md-offset-1">
-								<div class="tab-content">
-
-									<div class="tab-pane active" id="about_overview">
-										<div class="legend">Contact Information</div>
-										<div class="row">
-		
-										</div><!--.row-->
-										<div class="row">
-											<div class="col-md-3">Name</div><!--.col-md-3-->
-											<div class="col-md-9"><%= @profile1.user_name %> </div><!--.col-md-9-->
-										</div><!--.row-->
-										<div class="row">
-											<div class="col-md-3">Email</div><!--.col-md-3-->
-											<div class="col-md-9"><%= @profile1.email %></div><!--.col-md-9-->
-										</div><!--.row-->
-										<div class="row">
-											<div class="col-md-3"> No. of articles</div><!--.col-md-3-->
-											<div class="col-md-9"><%= @profile1.articles.size %></div><!--.col-md-9-->
-										</div><!--.row-->
-										
-									</div><!--#about_overview.tab-pane-->
-
-							
-
-								</div><!--.tab-content-->
-
-							</div><!--.col-md-9-->
-						</div><!--.row-->
-					</div><!--#about.tab-pane-->
 
 
 					<div id="about" class="tab-pane">
