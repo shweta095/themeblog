@@ -13,7 +13,7 @@
       <%@articles.reverse_each do |article|%>
         <div class="card card-event">
           <div class="card-heading">
-          <%= image_tag article.photo.url(:medium), class: "img-responsive", style: "width:100%" %>
+          <%= image_tag article.image.url(:medium), class: "img-responsive", style: "width:100%" %>
           </div><!--.card-heading-->
 
           <div class="card-body">
@@ -51,7 +51,7 @@
           <div class="card tile card-news-more material-animate" style="height: 162px
    ">
             <div class="card-heading bg-image bg-opaque5">
-            <%= image_tag article.photo.url(:medium), class: "img-responsive" , style: "height:auto"%>
+            <%= image_tag article.image.url(:medium), class: "img-responsive" , style: "height:auto"%>
               <div class="heading-content">
                
                 <span class="headline" style="font-size:14px"><%= link_to  article.title, article_path(article), style: "background-color: rgba(0,0,0,0.5); padding: 0px 7px;
@@ -109,7 +109,8 @@
           <li data-anchor="slide5" data-nav-link>CONTACT</li>
           <li data-anchor="slide6" data-nav-link>SIGN UP</li>
           <li data-toggle="modal" data-target="#myModal"> SIGN IN</li>
-          <a href="users/auth/facebook"><li> SIGN IN with fb</li></a>
+
+          <li><a href="users/auth/facebook">SIGN IN with fb</li></a>
 
         </ul>
         <div class="selector"></div>
