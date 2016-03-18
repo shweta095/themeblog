@@ -19,11 +19,7 @@
 <%= render '/articles/header' %>
   <%= yield %>
    <%= javascript_include_tag 'application_postyield' %>
-</body>
-
 <%else%>
-
-<body>
 <div class="content">
   <%= yield %>
   <%= javascript_include_tag 'frontend_postyield_application' %>

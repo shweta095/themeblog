@@ -36,7 +36,7 @@
 
 			<div class="header-tabs scrollable-tabs sticky">
 				<ul class="nav nav-tabs tabs-active-text-white tabs-active-border-yellow">
-					<li class="active"><a href="#timeline" data-toggle="tab" class="btn-ripple">Timeline</a></li>
+					<li class="active"><a href="#article" data-toggle="tab" class="btn-ripple">Articles</a></li>
 					<li><a href="#about" data-toggle="tab" class="btn-ripple">About</a></li>
 					<li><a href="#photos" data-toggle="tab" class="btn-ripple">Photos</a></li>
 					
@@ -66,7 +66,7 @@
 		<div class="row user-profile">
 			<div class="col-md-12 ssss">
 				<div class="tab-content without-border">
-					<div id="timeline" class="tab-pane active">
+					<div id="article" class="tab-pane active">
 
 
 
@@ -123,67 +123,75 @@
 						</div><!--.row-->
 					</div><!--#about.tab-pane-->
 
+
+					<div id="about" class="tab-pane">
+						<div class="row">
+							<div class="col-md-3 col-xs-12">
+								<ul class="nav nav-tabs borderless vertical">
+									<li class="active"><a href="#about_overview" data-toggle="tab">Overview</a></li>
+								</ul>
+							</div><!--.col-md-3-->
+							<div class="col-md-9 col-xs-12">
+								<div class="tab-content">
+
+									<div class="tab-pane active" id="about_overview">
+										<div class="legend">Contact Information</div>
+										<div class="row">
+											<div class="col-md-3 ">Mobile Phones</div><!--.col-md-3-->
+											<div class="col-md-9">+91-8881234567</div><!--.col-md-9-->
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3">Address</div><!--.col-md-3-->
+											<div class="col-md-9">#1200 Sector 21<br>Chandigarh </div><!--.col-md-9-->
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3">Website</div><!--.col-md-3-->
+											<div class="col-md-9">http://www.poplify.com</div><!--.col-md-9-->
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3">Email</div><!--.col-md-3-->
+											<div class="col-md-9"><%= @profile1.email %></div><!--.col-md-9-->
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3">Facebook</div><!--.col-md-3-->
+											<div class="col-md-9">fb.com/poplify</div><!--.col-md-9-->
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3">Twitter</div><!--.col-md-3-->
+											<div class="col-md-9">twitter.com/poplify</div><!--.col-md-9-->
+										</div><!--.row-->
+
+										<div class="legend">Basic Information</div>
+										<div class="row">
+											<div class="col-md-3">Birth Date</div><!--.col-md-3-->
+											<div class="col-md-9">April 27</div><!--.col-md-9-->
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3">Birth Year</div><!--.col-md-3-->
+											<div class="col-md-9">1997</div><!--.col-md-9-->
+										</div><!--.row-->
+										<div class="row">
+											<div class="col-md-3">Gender</div><!--.col-md-3-->
+											<div class="col-md-9">Male</div><!--.col-md-9-->
+										</div><!--.row-->
+									</div><!--#about_overview.tab-pane-->
+
+
+								</div><!--.tab-content-->
+
+							</div><!--.col-md-9-->
+						</div><!--.row-->
+					</div><!--#about.tab-pane-->
+
 					<div id="photos" class="tab-pane">
 						<div class="row image-row">
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/1.jpg" title="Some title goes here" data-gallery="#user-gallery"><img src="/assets/picjumbo/1.jpg" alt=""></a>
+						<% @profile1.articles.each do |article| %>
+							<div class="col-xs-12 col-sm-8 col-md-6 col-lg-3">
+								<%= image_tag article.image.url, class: 'card card-deep-purple card-image bg-image'  %>
 							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/2.jpg" title="Another title goes here" data-gallery="#user-gallery"><img src="/assets/picjumbo/2.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/3.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/3.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/4.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/4.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/5.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/5.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/6.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/6.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/globals/img/picjumbo/7.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/7.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/globals/img/picjumbo/8.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/8.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/9.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/9.jpg" alt=""></a>
-							</div><!--.col-->
-
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/10.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/10.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/11.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/11.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/12.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/12.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/13.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/13.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/14.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/14.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/15.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/15.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/16.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/16.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/17.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/17.jpg" alt=""></a>
-							</div><!--.col-->
-							<div class="col-xs-6 col-sm-4 col-md-3 col-lg-2">
-								<a href="/assets/picjumbo/18.jpg" title="" data-gallery="#user-gallery"><img src="/assets/picjumbo/18.jpg" alt=""></a>
-							</div><!--.col-->
-
+						<% end %>
 						</div><!--.row-->
 					</div><!--#photos.tab-pane-->
-					
 
 					</div><!--.col-->
 				</div><!--.tab-pane #settings-->
