@@ -1,40 +1,58 @@
 <!DOCTYPE html>
-<html>
 <head>
-  <title>Themeblog</title>
-  <% if user_signed_in? %>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <% else %>
-   <%= stylesheet_link_tag    'frontend_application', media: 'all' %>
-   <% end %>
-     <%= javascript_include_tag 'application' %>
-   <script src="http://maps.google.com/maps/api/js?sensor=true&amp;libraries=places"></script>
-  <%= csrf_meta_tags %>
-</head>
-
-
-
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 <% if user_signed_in? %>
-<body>
-<%= render '/articles/header' %>
-  <%= yield %>
-   <%= javascript_include_tag 'application_postyield' %>
-</body>
+   <%= stylesheet_link_tag    'application', media: 'all' %>
+   <%else%>
+   <%= stylesheet_link_tag    'landingpage', media: 'all' %>
+   <%end%>
 
+   <%= javascript_include_tag 'prebody'%>
+
+ 
+  <%= csrf_meta_tags %>
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<% if user_signed_in?%>
+<%= render '/layouts/shared/navbar'%>
+<%end%>
+<%if notice%>
+<div class="col-md-4 col-md-offset-7 col-xs-12 notice"><%= notice %></div><%end%>
+<%= render '/devise/sessions/new'%>
+
+<!-- <script src="http://maps.google.com/maps/api/js?sensor=true&amp;libraries=places"></script> -->
+<%if user_signed_in?%>
+<%= javascript_include_tag 'blogger_extension'%>
 <%else%>
+<%= javascript_include_tag 'landingpageplugin'%>
+<%end%>
+<%= yield %>
+<%if user_signed_in?%>
+ <%= javascript_include_tag 'application'%>
+ <%else%>
+ <%= javascript_include_tag 'landingpagepostbody'%>
+ <%end%>
+<script type="text/javascript">
+  
+  
+  
 
-<body>
-<div class="content">
-  <%= yield %>
-  <%= javascript_include_tag 'frontend_postyield_application' %>
-  </div>
+  $(".notice").fadeOut(7000);
+
+ 
+
+</script>
 </body>
-
-<% end %>
-
-
-
-
-
-
 </html>

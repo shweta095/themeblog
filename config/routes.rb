@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   
   
-  devise_for :users
+  devise_for :users, :controllers => { omniauth_callbacks: 'omniauth_callbacks' }
+ 
   get'profile/:id' =>'articles#profile',as: :profile
   post "/articles/:id/crop" => 'articles#crop'
   resources :articles do

@@ -6,11 +6,7 @@
 
 <div class="card card-event">
 
-<% if user_signed_in? %>
-<%  (current_user == @article.user) %>
-<%= link_to "Edit",edit_article_path(@article)%>
-<%= link_to "delete",@article, method: :delete,data: {confirm: "Really delete the article"} %>
-<% end %>
+
 
 
 					<div class="card-heading bg-image">
@@ -89,7 +85,7 @@
 						<div class="quote" style="    top: 50px;">
 							
 							<p><h4 style="font-size:12px; color:black"><%= link_to article.title, article_path(article),style: "background-color: rgba(0,0,0,0.8);     padding: 2px 6px;
-}"%></h4></p>
+"%></h4></p>
 							
 						</div><!--.quote-->
 						
