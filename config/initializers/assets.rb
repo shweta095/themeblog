@@ -9,6 +9,8 @@ Rails.application.config.assets.version = '1.0'
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
 # Rails.application.config.assets.precompile += %w( search.js )
-Rails.application.config.assets.precompile += %w( application_postyield.js )
-Rails.application.config.assets.precompile += %w( frontend_postyield_application.js )
-Rails.application.config.assets.precompile += %w( frontend_application.css )
+Rails.application.config.assets.precompile += %w( prebody.js )
+Rails.application.config.assets.precompile += %w( blogger_extension.js )
+Rails.application.config.assets.precompile += %w( landingpage.css )
+Rails.application.config.assets.precompile += %w( landingpageplugin.js )
+Rails.application.config.assets.precompile += %w( landingpagepostbody.js )

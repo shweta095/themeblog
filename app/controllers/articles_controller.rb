@@ -5,13 +5,18 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
+     if params[:search]
+    @articles = Article.search(params[:search]).order("created_at DESC")
+  else
+    @articles = Article.all
+  end
   end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
 
-    
+    @articles= Article.all
  @article = Article.find(params[:id])
    @comment = Comment.new
 @comment.article_id = @article.id
@@ -34,8 +39,9 @@ class ArticlesController < ApplicationController
      @article.user_id=current_user.id
     respond_to do |format|
       if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
+          format.html{ render :crop}
+        # format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        # format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }
@@ -48,8 +54,9 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
+          format.html{ render :crop}
+        # format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        # format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
         format.json { render json: @article.errors, status: :unprocessable_entity }
@@ -71,6 +78,21 @@ class ArticlesController < ApplicationController
     @profile1 =User.find(params[:id])
 
   end
+  def crop
+
+    @article=Article.find(params[:id])
+       
+       @article.image_crop_x=params[:article][:image_crop_x]
+        @article.image_crop_y=params[:article][:image_crop_y]
+       @article.image_crop_w=params[:article][:image_crop_w]
+        @article.image_crop_h=params[:article][:image_crop_h]
+             @article.image_aspect=params[:article][:image_aspect]
+        
+    
+        @article.save
+        redirect_to article_path(@article), notice: 'Image was successfully cropped.' 
+     
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -80,6 +102,6 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :tag_list, :image, :user_id)
+      params.require(:article).permit(:title, :body, :tag_list, :image, :user_id,:photo_crop_x,:photo_crop_y,:photo_crop_w,:photo_crop_h,:photo_aspect)
     end
 end
