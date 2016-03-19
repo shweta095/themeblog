@@ -1,8 +1,5 @@
 <div class="comment">
-<%#if @comment.present?%>
-	<%#comment = @comment%>
-<%#end%>
-<%#debugger%>
+
 <div class="col-md-1 user-photo" style="padding-left:0px;"><%=image_tag comment.user.image.url(:circle), style: "border-radius: 50%;"%></div>
 
 <ul class="inline-list dot-seperator">
@@ -16,16 +13,21 @@
 								
 									
 								<p style="padding-left:5px"><%= comment.body %></p>
-								<div class="comment-footer" style="font-size: 12px;
+		<div class="comment-footer" style="font-size: 12px;
     margin-bottom: 20px; padding-left:5px;">
-									
-										<%= link_to 'Edit',edit_article_comment_path(:article_id => comment.article_id, :id => comment.id), :remote=> true, :class=>"edit" %> |
-									
-<%= link_to 'Delete',article_comment_path(:article_id => comment.article.id, :id=>comment.id), method: :delete, :remote=> true, data: {confirm:  "Are you sure?" }, :class=>"del"%>
-										
+								<% if comment.user.user_name == current_user.user_name%>
+								<%= link_to 'Edit', edit_article_comment_path(:article_id => comment.article_id, :id => comment.id),remote: true, :style => "font-size:13px" %> |
+								<%= link_to 'Delete', article_comment_path(:article_id => @comment.article.id, :id => comment.id), method: :delete, remote: true, data: {confirm: "Are You Sure?"}, :style => "font-size:13px"%>
+								<%end%>
+								
+                                <% if @article.user_id == current_user.id && comment.user.user_name != current_user.user_name%>
+								<%= link_to 'Delete', article_comment_path(:article_id => @comment.article.id, :id => comment.id), method: :delete, remote: true, data: {confirm: "Are You Sure?"}, :style => "font-size:13px"%>
+								<%end%>
+							
 						
 								
 								</div><!--.comment-footer-->
+								
 							</div><!--.comment-body-->
 						</div><!--.comment-->
 

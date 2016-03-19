@@ -20,8 +20,12 @@
 				</div><!--.col-->
 				<div class="col-sm-6">
 					<ol class="breadcrumb">
+					<% if user_signed_in?%>
+					<% if current_user.id == @profile1.id%>
 						<i class="fa fa-pencil" style="font-size:20px; color:black;"></i>
 						<%= link_to "Edit Profile",edit_user_registration_path, style: 'color:black' %> 
+						<%end%>
+						<%end%>
 					</ol>
 				</div><!--.col-->
 			</div><!--.row-->
@@ -47,7 +51,7 @@
 							<div class="col-md-3 col-xs-12">
 								<div class="card card-deep-purple card-image bg-image" style="background-image:url(<%= a.image %>); background-size:cover;">
 									<div class="context">
-										<span class="text-title"><%= a.title %></span>
+										<span class="text-title"><%= link_to a.title, article_path %></span>
 									</div>	
 								</div><!--.card-->
 							</div><!--.col-->

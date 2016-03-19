@@ -1,42 +1,15 @@
 <div class="panel">
   
-      <div class="panel-heading">
-        <div class="panel-title"><h4 style="margin:10px;">EDIT PROFILE</h4></div>
-      </div><!--.panel-heading-->
+  <div class="panel-heading">
+    <div class="panel-title"><h4 style="margin:10px;">EDIT PROFILE</h4></div>
+  </div><!--.panel-heading-->
   <div class="panel-body">
-  
-          
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
-  <div class="row">
-
-  <div class="col-md-4 form-group ">
-                     <div class="fileinput fileinput-new align-cntr" data-provides="fileinput">
-                      <div class="fileinput-preview thumbnail " style="width: 300px; height: 250px;">
-                      </div>
-                     <div>
-                      <span class="btn btn-default btn-file " style="background-color: #785447;
-    color: white;"><span class="fileinput-new">Select Image</span><%= f.file_field :image%><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
-                      <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-                     </div>
-                    </div> 
-  </div>
-
-  <div class="col-md-8 form-content">
-    <div class="form-group row align-cntr">
-     
-                  <label class="control-label col-md-3">User Name</label>
-                  <div class="col-md-5">
-                    <div class="inputer">
-                      <div class="input-wrapper">
-                     <%= f.text_field :user_name, autofocus: true, placeholder: "Name", :class=>"form-control" %>
-                      </div>
-                    </div>
-                  </div>
-       </div><!--.form-group-->
+    <div class="form-content">
 
 
-      <div class="form-group row align-cntr">
+      <div class="form-group row">
      
                   <label class="control-label col-md-3">Email address</label>
                   <div class="col-md-5">
@@ -49,7 +22,7 @@
        </div><!--.form-group-->
  
 
-      <div class="form-group row align-cntr">
+      <div class="form-group row">
                   <label class="control-label col-md-3">Password</label>
                   <div class="col-md-5">
                     <div class="inputer">
@@ -60,7 +33,11 @@
                   </div>
      </div><!--.form-group-->
 
-  <div class="form-group row align-cntr">
+
+   
+
+
+  <div class="form-group row">
     <label class="control-label col-md-3">Password confirmation</label>
     <div class="col-md-5">
       <div class="inputer">
@@ -72,7 +49,7 @@
   </div><!--.form-group-->
 
 
-    <div class="form-group row align-cntr">
+    <div class="form-group row">
       <label class="control-label col-md-3">Current Password</label>
       <div class="col-md-5">
         <div class="inputer">
@@ -84,21 +61,41 @@
    </div><!--.form-group-->
 
 
+    <div class="form-group row">
+      <label class="control-label col-md-3">Choose an image</label>
+      <div class="col-md-5">
+        <div class="inputer">
+          <div class="input-wrapper">
+           <%= f.file_field :image, :class=>"form-control" %>
+         </div>
+       </div>
+     </div>
+   </div><!--.form-group-->
 
 
-              <div class="form-buttons row">
-                  <div class="row">
-                      <div class=" col-md-5 col-md-offset-3">
-                          <%= f.submit "Update", :class=>"btn btn-brown" %>
-                      </div>
-                  </div>
-              </div>
-  
-        </div><!--.form-content-->
+    <div class="form-buttons row">
+      <div class="row">
+        <div class=" col-md-5 col-md-offset-3">
+          <%= f.submit "Update", :class=>"btn btn-success" %>
 
+        </div>
+
+
+
+        
       </div>
-      
-      <% end %>
-  
-  </div><!--.panel-body-->
+    </div>
+</div><!--.form-content-->
+<% end %>
+
+
+
+
+</div><!--.panel-body-->
+
+
+
+
+
+
 </div><!--.panel-->

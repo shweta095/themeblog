@@ -14,4 +14,11 @@
 //= require jquery_ujs
 //= require jquery.jcrop
 //= require papercrop
+//= require jquery.form-validator
 //= require_tree './prebody'
+
+<script>
+  $(document).ready(function() {
+    $.validate();
+  });
+</script>

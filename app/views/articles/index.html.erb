@@ -10,7 +10,7 @@
         
     ">TRENDING</h5>
     <hr>
-      <%@articles.reverse_each do |article|%>
+      <%@paginate.reverse_each do |article|%>
         <div class="card card-event">
           <div class="card-heading">
           <%= image_tag article.image.url(:medium), class: "img-responsive", style: "width:100%" %>
@@ -35,6 +35,7 @@
           </div><!--.card-footer-->
         </div><!--.card-->
         <%end%>
+         <%= will_paginate @paginate %>
       </div><!--.col-md-6-->
 
       
@@ -44,7 +45,7 @@
         <h5 style="
     font-weight: 600;">POPULAR POSTS</h5>
         <hr>
-        <%@articles.each do |article|%>
+        <%@paginate.each do |article|%>
           <div class="card tile card-news-more material-animate" style="height: 162px
    ">
             <div class="card-heading bg-image bg-opaque5">
@@ -61,7 +62,9 @@
             </div><!--.card-body-->
           </div><!--.card-->
           <%end%>
+
         </div><!--.col-->
+
       
    <div class="col-md-4"><div class="fb-page" data-href="https://www.facebook.com/Poplify/" data-tabs="timeline" data-width="500px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Poplify/"><a href="https://www.facebook.com">Facebook</a></blockquote></div></div></div>  
    <div class="col-md-4" style="margin-top: 35px;">
@@ -103,11 +106,10 @@
           <li data-anchor="slide2" data-nav-link>PLANS</li>
           <li data-anchor="slide3" data-nav-link>OVERVIEW</li>
           <li data-anchor="slide4" data-nav-link>ABOUT US</li>
-          <li data-anchor="slide5" data-nav-link>CONTACT</li>
-          <li data-anchor="slide6" data-nav-link>SIGN UP</li>
+          <li data-anchor="slide5" data-nav-link>SIGN UP</li>
           <li data-toggle="modal" data-target="#myModal"> SIGN IN</li>
-          <li data-nav-link><a href="/users/auth/facebook">SIGN IN FACEBOOK</a></li>
 
+           <li data-anchor="slide6" data-nav-link>CONTACT</li>
 
         </ul>
         <div class="selector"></div>
@@ -143,11 +145,7 @@
       
 
     </div><!--.container-->
-    <h5 style="color: white;
-    text-align: center;
-    position: relative;
-    top: 75px;
-    font-weight: 400;">EXPLORE MORE</h5>
+    
     <a class="btn btn-large btn-floating btn-indigo btn-next btn-next-center" data-anchor="slide1" data-nav-link><i class="ion-chevron-down"></i></a>
 
   </div><!--.slide-hero-->
@@ -155,7 +153,7 @@
   <!--
   * data-nav="slide1" attribute is an identifier for data-nav-links.
   -->
-  <div class="slide" data-nav="slide1">
+  <div class="slide" style="padding:50px 0px" data-nav="slide1">
 
     <div class="container">
 
@@ -198,7 +196,7 @@ with a passionate community of writers and enthusiasts.</span>
         </div><!--.col-->
       </div><!--.row-->
 
-      <a class="btn btn-large btn-floating btn-pink btn-next btn-next-left" data-anchor="slide2" data-nav-link><i class="ion-chevron-down"></i></a>
+      <a class="btn btn-large btn-floating btn-pink btn-next btn-next-left" data-anchor="slide2" data-nav-link style="bottom:-77px"><i class="ion-chevron-down"></i></a>
 
     </div><!--.container-->
 
@@ -255,10 +253,10 @@ with a passionate community of writers and enthusiasts.</span>
 
   <div class="slide bg-image-with-shadow" style="background-image: url('/assets/bg-overview.jpg'); " data-nav="slide3">
     <div class="container">
-      <h3 class="text-white text-center">LETS SEE!</h3>
-      <p class="caption text-white text-center">How bloggers works on blogger. How an article take place in blogger.</p>
+      <h3 class="text-white text-center" style="margin-top:0px;">LETS SEE!</h3>
+      <p class="caption text-white text-center" style="margin-bottom:0px;">How bloggers works on blogger. How an article take place in blogger.</p>
 
-      <ul class="row list-horizontal white">
+      <ul class="row list-horizontal white" style="margin-top:110px;">
         <li class="col-sm-4" data-bottom-top="top:-50px" data-center="top:0px">
           <div class="list-icon">
             <i class="ion-ios-lightbulb"></i>
@@ -295,8 +293,8 @@ with a passionate community of writers and enthusiasts.</span>
 
   <div class="slide bg-pattern" style="background-image: url('/assets/sativa.png');" data-nav="slide4">
     <div class="container">
-      <h3 class="text-black text-center">ABOUT US</h3>
-      <p class="caption text-center">Here are some peoples, who give their full effort in making blogger and giving their best.</p>
+      <h3 class="text-black text-center" style="margin-top:0px;">ABOUT US</h3>
+      <p class="caption text-center" style="margin-bottom:0px;">Here are some peoples, who give their full effort in making blogger and giving their best.</p>
 
       <div class="row transform-bug">
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-100px" data-center="bottom:0px">
@@ -365,10 +363,49 @@ with a passionate community of writers and enthusiasts.</span>
 
   </div><!--.slide-->
 
-  <div class="slide" data-nav="slide5">
+  
+  <div class="slide" style="background-color:#F7F8F8" data-nav="slide5">
 
     <div class="container">
-      <h3 class="text-black text-center">CONTACT</h3>
+      <h3 class="text-black text-center" style="margin-top:0px;">SIGN UP</h3>
+      <p class="caption text-center" style="margin-bottom:0px;">It's free and always will be. </p>
+        <div class="col-md-7 col-xs-12">
+      <p class="signp" style="margin-bottom:25px">WHY JOIN BLOGGER <span data-typer-targets="FAMILY, COMMUNITY">FAMILY.</p>
+     
+      <ul class="sign_up_box ">
+        <li>
+          Access hundreds of articles to read every time
+        </li>
+        <li>
+          Book as many new articles as you like for a flat fee
+        </li>
+        <li>
+          Enjoy a variety of experiences, articles and events
+        </li>
+        <li>
+          Meet new people and share great times
+        </li>
+        <li>
+          Not the commitment type? Cancel account anytime
+        </li>
+      </ul>
+</div><!--.col-->
+
+<div class="col-md-5">
+<div class="row">
+<%= render '/devise/registrations/new' %>
+       </div>
+        </div><!--.col-->
+     <a class="btn btn-large btn-floating btn-amber btn-next btn-next-right" data-anchor="slide6" data-nav-link><i class="ion-chevron-down"></i></a>
+
+    </div><!--.container-->
+
+  </div><!--.slide-->
+
+  <div class="slide" data-nav="slide6">
+
+    <div class="container">
+      <h3 class="text-black text-center" style="margin-top:0px;">CONTACT</h3>
       <p class="caption text-center">We will be glad if you write us.</p>
 
       <div class="row">
@@ -412,43 +449,6 @@ with a passionate community of writers and enthusiasts.</span>
           <button type="submit" class="btn btn-teal pull-right">SEND</button>
         </div><!--.col-->
       </div><!--.row-->
-<a class="btn btn-large btn-floating btn-amber btn-next btn-next-right" data-anchor="slide6" data-nav-link><i class="ion-chevron-down"></i></a>
-    </div><!--.container-->
-
-  </div><!--.slide-->
-  <div class="slide" style="background-color:#F7F8F8" data-nav="slide6">
-
-    <div class="container">
-      <h3 class="text-black text-center">SIGN UP</h3>
-      <p class="caption text-center">It's free and always will be. </p>
-        <div class="col-md-7 col-xs-12">
-      <p class="signp" style="margin-bottom:25px">WHY JOIN BLOGGER <span data-typer-targets="FAMILY, COMMUNITY">FAMILY.</p>
-     
-      <ul class="sign_up_box ">
-        <li>
-          Access hundreds of articles to read every time
-        </li>
-        <li>
-          Book as many new articles as you like for a flat fee
-        </li>
-        <li>
-          Enjoy a variety of experiences, articles and events
-        </li>
-        <li>
-          Meet new people and share great times
-        </li>
-        <li>
-          Not the commitment type? Cancel account anytime
-        </li>
-      </ul>
-</div><!--.col-->
-
-<div class="col-md-5">
-<div class="row">
-<%= render '/devise/registrations/new' %>
-       </div>
-        </div><!--.col-->
-     
 
     </div><!--.container-->
 

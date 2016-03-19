@@ -1,12 +1,5 @@
 
-
-
-
 <%= form_for [ @article, @comment ], remote:true do |f| %>
-
-          
-
-
   <% if user_signed_in? %>
 <%= f.hidden_field :user_name, :value => current_user.user_name%>
     
@@ -17,7 +10,7 @@
   </p>
   <p>
   
-    <%= f.text_area :body, class: "form-control js-auto-size", placeholder: "Join the discussion" %>
+    <%= f.text_area :body,:required => true, class: "form-control js-auto-size", placeholder: "Join the discussion" %>
  
   
   <span>

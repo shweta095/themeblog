@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
+  before_action :signed, only: [:edit, :update, :destroy]
 
   # GET /comments
   # GET /comments.json
@@ -80,7 +81,14 @@ class CommentsController < ApplicationController
   end
     
 
-
+def signed
+      @article = Article.find(params[:article_id])
+      @comment = Comment.find(params[:id])
+      if current_user.id != @article.user_id
+        flash[:notice] = "You are not eligible"
+        redirect_to root_path
+      end
+    end
  
 
   private

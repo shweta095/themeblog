@@ -1,10 +1,13 @@
 class ArticlesController < ApplicationController
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_article, only: [:show, :edit, :update, :destroy,:signed]
+   
+      before_action :authenticate_user!, :except => [:index]
+before_action :signed, only: [:edit]
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
+    @paginate = @articles.paginate(:page => params[:page], :per_page => 2)
      if params[:search]
     @articles = Article.search(params[:search]).order("created_at DESC")
   else
@@ -17,10 +20,10 @@ class ArticlesController < ApplicationController
   def show
 
     @articles= Article.all
- @article = Article.find(params[:id])
-   @comment = Comment.new
-@comment.article_id = @article.id
- @article1= Article.where('id != ?',params[:id])
+    @article = Article.find(params[:id])
+    @comment = Comment.new
+    @comment.article_id = @article.id
+    @article1= Article.where('id != ?',params[:id])
   end
 
   # GET /articles/new
@@ -36,7 +39,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-     @article.user_id=current_user.id
+    @article.user_id=current_user.id
     respond_to do |format|
       if @article.save
           format.html{ render :crop}
@@ -98,6 +101,14 @@ class ArticlesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_article
       @article = Article.find(params[:id])
+    end
+     def signed
+
+      
+      if current_user.id != @article.user_id
+        flash[:notice] = "You are not eligible"
+        redirect_to root_path
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
