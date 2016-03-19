@@ -103,9 +103,9 @@
           <li data-anchor="slide2" data-nav-link>PLANS</li>
           <li data-anchor="slide3" data-nav-link>OVERVIEW</li>
           <li data-anchor="slide4" data-nav-link>ABOUT US</li>
-          <li data-anchor="slide5" data-nav-link>CONTACT</li>
-          <li data-anchor="slide6" data-nav-link>SIGN UP</li>
+          <li data-anchor="slide5" data-nav-link>SIGN UP</li>
           <li data-toggle="modal" data-target="#myModal"> SIGN IN</li>
+           <li data-anchor="slide6" data-nav-link>CONTACT</li>
 
         </ul>
         <div class="selector"></div>
@@ -363,7 +363,46 @@ with a passionate community of writers and enthusiasts.</span>
 
   </div><!--.slide-->
 
-  <div class="slide" data-nav="slide5">
+  
+  <div class="slide" style="background-color:#F7F8F8" data-nav="slide5">
+
+    <div class="container">
+      <h3 class="text-black text-center">SIGN UP</h3>
+      <p class="caption text-center">It's free and always will be. </p>
+        <div class="col-md-7 col-xs-12">
+      <p class="signp" style="margin-bottom:25px">WHY JOIN BLOGGER <span data-typer-targets="FAMILY, COMMUNITY">FAMILY.</p>
+     
+      <ul class="sign_up_box ">
+        <li>
+          Access hundreds of articles to read every time
+        </li>
+        <li>
+          Book as many new articles as you like for a flat fee
+        </li>
+        <li>
+          Enjoy a variety of experiences, articles and events
+        </li>
+        <li>
+          Meet new people and share great times
+        </li>
+        <li>
+          Not the commitment type? Cancel account anytime
+        </li>
+      </ul>
+</div><!--.col-->
+
+<div class="col-md-5">
+<div class="row">
+<%= render '/devise/registrations/new' %>
+       </div>
+        </div><!--.col-->
+     <a class="btn btn-large btn-floating btn-amber btn-next btn-next-right" data-anchor="slide6" data-nav-link><i class="ion-chevron-down"></i></a>
+
+    </div><!--.container-->
+
+  </div><!--.slide-->
+
+  <div class="slide" data-nav="slide6">
 
     <div class="container">
       <h3 class="text-black text-center">CONTACT</h3>
@@ -410,43 +449,6 @@ with a passionate community of writers and enthusiasts.</span>
           <button type="submit" class="btn btn-teal pull-right">SEND</button>
         </div><!--.col-->
       </div><!--.row-->
-<a class="btn btn-large btn-floating btn-amber btn-next btn-next-right" data-anchor="slide6" data-nav-link><i class="ion-chevron-down"></i></a>
-    </div><!--.container-->
-
-  </div><!--.slide-->
-  <div class="slide" style="background-color:#F7F8F8" data-nav="slide6">
-
-    <div class="container">
-      <h3 class="text-black text-center">SIGN UP</h3>
-      <p class="caption text-center">It's free and always will be. </p>
-        <div class="col-md-7 col-xs-12">
-      <p class="signp" style="margin-bottom:25px">WHY JOIN BLOGGER <span data-typer-targets="FAMILY, COMMUNITY">FAMILY.</p>
-     
-      <ul class="sign_up_box ">
-        <li>
-          Access hundreds of articles to read every time
-        </li>
-        <li>
-          Book as many new articles as you like for a flat fee
-        </li>
-        <li>
-          Enjoy a variety of experiences, articles and events
-        </li>
-        <li>
-          Meet new people and share great times
-        </li>
-        <li>
-          Not the commitment type? Cancel account anytime
-        </li>
-      </ul>
-</div><!--.col-->
-
-<div class="col-md-5">
-<div class="row">
-<%= render '/devise/registrations/new' %>
-       </div>
-        </div><!--.col-->
-     
 
     </div><!--.container-->
 

@@ -1,103 +1,41 @@
-<div class="panel">
-  
-  <div class="panel-heading">
-    <div class="panel-title"><h4 style="margin:10px;">SIGN UP</h4></div>
-  </div><!--.panel-heading-->
-  <div class="panel-body">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-    <div class="form-content">
+  <div class="form-group">
+            <div class="inputer inputer-teal floating-label">
+              <div class="input-wrapper">
+ <%= f.email_field :email, :class =>"form-control"%>
+  <label><%= f.label :email %></label>
+  </div></div></div>
 
+  <div class="form-group">
+            <div class="inputer inputer-teal floating-label">
+              <div class="input-wrapper">
+    
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %>
+    <%= f.password_field :password, autocomplete: "off",:class =>"form-control", :required => true%>
+    <label><%= f.label :password%></label>
+  </div></div></div>
 
-      <div class="form-group row">
-        <label class="control-label col-md-3"> User name</label>
-        <div class="col-md-5">
-          <div class="inputer">
-            <div class="input-wrapper">
-             <%= f.text_field :current_password, autofocus: true, placeholder:"User name" ,:class=>"form-control"%>
-           </div>
-         </div>
-
-       </div><!--.form-group-->
-     </div>
-
-      <div class="form-group row">
-        <label class="control-label col-md-3">Email address</label>
-        <div class="col-md-5">
-          <div class="inputer">
-            <div class="input-wrapper">
-             <%= f.email_field :email,  placeholder: "Email", :class=>"form-control" %>
-           </div>
-         </div>
-       </div>
-     </div><!--.form-group-->
-
-
+  <div class="form-group">
+            <div class="inputer inputer-teal floating-label">
+              <div class="input-wrapper">
    
-    <div class="form-group row">
-      <label class="control-label col-md-3">Password</label>
-      <div class="col-md-5">
-        <div class="inputer">
-          <div class="input-wrapper">
-           <%= f.password_field :password, autocomplete: "off", placeholder: "Password", :class=>"form-control" %>
-         </div>
-       </div>
-     </div>
-   </div><!--.form-group-->
+    <%= f.password_field :password_confirmation, autocomplete: "off", :class =>"form-control" %>
+     <%= f.label :password_confirmation, "Confirm password" %>
+  </div></div></div>
+  
+   <div class="col-md-12 col-xs-12" style="padding-left:0px;">
+    
+                  <%= f.submit "Sign Up", :class =>"btn btn-teal pull-left"  %>
+              </div>
+  <% end %>
 
 
 
-  <div class="form-group row">
-    <label class="control-label col-md-3">Password confirmation</label>
-    <div class="col-md-5">
-      <div class="inputer">
-        <div class="input-wrapper">
-          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Password Confirmation", :class=>"form-control"%>
-        </div>
-      </div>
-    </div>
-  </div><!--.form-group-->
-
-
-
-
-  <div class="form-group row">
-    <label class="control-label col-md-3"> Choose an image</label>
-    <div class="col-md-5">
-
-      <div class="input-wrapper">
-        <%= f.file_field :image %>
-      </div>
-
-    </div>
-  </div><!--.form-group-->
-    <div class="form-buttons row">
-      <div class="row">
-        <div class=" col-md-5 col-md-offset-3">
-          <%= f.submit "Sign Up", :class=>"btn btn-brown" %>
-
-        </div>
-
-
-
-        
-      </div>
-    </div>
-</div><!--.form-content-->
-<% end %>
-
-
-
-
-</div><!--.panel-body-->
-
-
-
-
-
-
-</div><!--.panel-->
-<!--  <#%= render "devise/shared/links" %> -->
 
 
 
