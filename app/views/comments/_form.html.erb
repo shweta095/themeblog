@@ -3,8 +3,8 @@
           
 
 
-  <% if author_signed_in? %>
-<%= f.hidden_field :user_name, :value => current_author.name%>
+  <% if user_signed_in? %>
+<%= f.hidden_field :user_name, :value => current_user.user_name%>
     
    
     <%else%><p>

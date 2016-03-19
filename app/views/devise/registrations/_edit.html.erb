@@ -1,0 +1,100 @@
+<div class="panel">
+  
+  <div class="panel-heading">
+    <div class="panel-title"><h4 style="margin:10px;">EDIT PROFILE</h4></div>
+  </div><!--.panel-heading-->
+  <div class="panel-body">
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+  <%= devise_error_messages! %>
+    <div class="form-content">
+
+
+      <div class="form-group row">
+     
+                  <label class="control-label col-md-3">Email address</label>
+                  <div class="col-md-5">
+                    <div class="inputer">
+                      <div class="input-wrapper">
+                     <%= f.email_field :email, autofocus: true, placeholder: "Email", :class=>"form-control" %>
+                      </div>
+                    </div>
+                  </div>
+       </div><!--.form-group-->
+ 
+
+      <div class="form-group row">
+                  <label class="control-label col-md-3">Password</label>
+                  <div class="col-md-5">
+                    <div class="inputer">
+                      <div class="input-wrapper">
+                     <%= f.password_field :password, autocomplete: "off", placeholder: "Password", :class=>"form-control" %>
+                      </div>
+                    </div>
+                  </div>
+     </div><!--.form-group-->
+
+
+   
+
+
+  <div class="form-group row">
+    <label class="control-label col-md-3">Password confirmation</label>
+    <div class="col-md-5">
+      <div class="inputer">
+        <div class="input-wrapper">
+          <%= f.password_field :password_confirmation, autocomplete: "off", placeholder:"Password Confirmation", :class=>"form-control"%>
+        </div>
+      </div>
+    </div>
+  </div><!--.form-group-->
+
+
+    <div class="form-group row">
+      <label class="control-label col-md-3">Current Password</label>
+      <div class="col-md-5">
+        <div class="inputer">
+          <div class="input-wrapper">
+           <%= f.password_field :password, autocomplete: "off", placeholder: "Current Password", :class=>"form-control" %>
+         </div>
+       </div>
+     </div>
+   </div><!--.form-group-->
+
+
+
+  <div class="form-group row">
+    <label class="control-label col-md-3"> Choose an image</label>
+    <div class="col-md-5">
+
+      <div class="input-wrapper">
+        <%= f.file_field :image %>
+      </div>
+
+    </div>
+  </div><!--.form-group-->
+    <div class="form-buttons row">
+      <div class="row">
+        <div class=" col-md-5 col-md-offset-3">
+          <%= f.submit "Update", :class=>"btn btn-brown" %>
+
+        </div>
+
+
+
+        
+      </div>
+    </div>
+</div><!--.form-content-->
+<% end %>
+
+
+
+
+</div><!--.panel-body-->
+
+
+
+
+
+
+</div><!--.panel-->
