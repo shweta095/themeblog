@@ -74,7 +74,7 @@ class ArticlesController < ApplicationController
     end
   end
   def profile
-    @profile= Article.find(params[:id])
+    # @profile= Article.find(params[:id])
     @profile1 =User.find(params[:id])
 
   end

@@ -21,7 +21,6 @@ class CommentsController < ApplicationController
   def edit
   @article = Article.find(params[:article_id])
    @comment = Comment.find(params[:id])
-   debugger
    respond_to do |format|
    format.js
  end
@@ -52,9 +51,12 @@ class CommentsController < ApplicationController
   # PATCH/PUT /comments/1
   # PATCH/PUT /comments/1.json
   def update
-@article = Article.find(params[:article_id])
+    @article = Article.find(params[:article_id])
     @comment = Comment.find(params[:id])
-    
+  @comment.article_id = params[:article_id]
+  @comment.user_id = current_user.id 
+  @comment.save
+
     @comment.update(comment_params)
      respond_to do |format|
       format.js
