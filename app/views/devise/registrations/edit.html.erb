@@ -10,9 +10,9 @@
   <%= devise_error_messages! %>
   <div class="row">
 
-  <div class="col-md-4 form-group ">
+  <div class="col-md-4 form-group align-cntr">
                      <div class="fileinput fileinput-new align-cntr" data-provides="fileinput">
-                      <div class="fileinput-preview thumbnail " style="width: 300px; height: 250px;">
+                      <div class="fileinput-preview thumbnail " style= "width: 300px; height: 250px; margin-bottom:25px;">
                       <% if user_signed_in? %>
                       <% if current_user.image present?%>
                       <%= image_tag current_user.image.url(:medium)%>
