@@ -32,18 +32,23 @@
 					</div><!--.card-body-->
 
 					
-				</div><!--.card-->
+
+							</div><!--col-->
+						
+				
 
 
- 
-  
-<% if user_signed_in?%>
+
 <h3>Comments (<%= @article.comments.size %>)</h3>
+
+<div class="comment-sec">  
 <%= render partial: 'articles/comment', collection: @article.comments %>
+</div>
+<div>
+<% if user_signed_in?%>
 <%= render partial: 'comments/form' %>
 <%end%>
-
-
+</div>
 
 
 				

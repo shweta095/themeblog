@@ -10,7 +10,7 @@
         
     ">TRENDING</h5>
     <hr>
-      <%@articles.reverse_each do |article|%>
+      <%@paginate.reverse_each do |article|%>
         <div class="card card-event">
           <div class="card-heading">
           <%= image_tag article.image.url(:medium), class: "img-responsive", style: "width:100%" %>
@@ -35,6 +35,7 @@
           </div><!--.card-footer-->
         </div><!--.card-->
         <%end%>
+         <%= will_paginate @paginate %>
       </div><!--.col-md-6-->
 
       
@@ -44,7 +45,7 @@
         <h5 style="
     font-weight: 600;">POPULAR POSTS</h5>
         <hr>
-        <%@articles.each do |article|%>
+        <%@paginate.each do |article|%>
           <div class="card tile card-news-more material-animate" style="height: 162px
    ">
             <div class="card-heading bg-image bg-opaque5">
@@ -53,7 +54,7 @@
                
                 <span class="headline" style="font-size:14px"><%= link_to  article.title, article_path(article), style: "background-color: rgba(0,0,0,0.5); padding: 0px 7px;
     color: white;"%></span>
-                <button class="btn btn-floating btn-pink toggle-card-news-more"><i class="ion-android-create"></i></button>
+                
               </div>
             </div><!--.card-heading-->
             <div class="card-body">
@@ -61,7 +62,9 @@
             </div><!--.card-body-->
           </div><!--.card-->
           <%end%>
+
         </div><!--.col-->
+
       
    <div class="col-md-4"><div class="fb-page" data-href="https://www.facebook.com/Poplify/" data-tabs="timeline" data-width="500px" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/Poplify/"><a href="https://www.facebook.com">Facebook</a></blockquote></div></div></div>  
    <div class="col-md-4" style="margin-top: 35px;">
@@ -105,6 +108,7 @@
           <li data-anchor="slide4" data-nav-link>ABOUT US</li>
           <li data-anchor="slide5" data-nav-link>SIGN UP</li>
           <li data-toggle="modal" data-target="#myModal"> SIGN IN</li>
+
            <li data-anchor="slide6" data-nav-link>CONTACT</li>
 
         </ul>
@@ -128,7 +132,7 @@
 
   * data-nav="remove" attribute hides the active navigation border when this slide in viewport.
   -->
-  <div class="slide bg-image" data-nav="remove" style="background: url('/assets/header.jpg') fixed;">
+  <div class="slide bg-image" data-nav="remove" style="background: url('/assets/hd2.jpg') center fixed;">
 
     <div class="container">
       <div class="row">
@@ -141,11 +145,7 @@
       
 
     </div><!--.container-->
-    <h5 style="color: white;
-    text-align: center;
-    position: relative;
-    top: 75px;
-    font-weight: 400;">EXPLORE MORE</h5>
+    
     <a class="btn btn-large btn-floating btn-indigo btn-next btn-next-center" data-anchor="slide1" data-nav-link><i class="ion-chevron-down"></i></a>
 
   </div><!--.slide-hero-->
@@ -153,11 +153,11 @@
   <!--
   * data-nav="slide1" attribute is an identifier for data-nav-links.
   -->
-  <div class="slide" data-nav="slide1">
+  <div class="slide" style="padding:50px 0px" data-nav="slide1">
 
     <div class="container">
 
-      <div class="slide-image-horizontal hide-on-mobile" data-bottom-top="left:-200px" data-center="left:50px"><img src="/assets/bg-features (1).jpg" alt=""></div><!--.slide-image-->
+      <div class="slide-image-horizontal hide-on-mobile" data-bottom-top="left:-200px" data-center="left:50px"><img src="/assets/ba.jpg" alt=""></div><!--.slide-image-->
 
       <div class="row">
         <div class="col-md-6 col-md-offset-6">
@@ -196,7 +196,7 @@ with a passionate community of writers and enthusiasts.</span>
         </div><!--.col-->
       </div><!--.row-->
 
-      <a class="btn btn-large btn-floating btn-pink btn-next btn-next-left" data-anchor="slide2" data-nav-link><i class="ion-chevron-down"></i></a>
+      <a class="btn btn-large btn-floating btn-pink btn-next btn-next-left" data-anchor="slide2" data-nav-link style="bottom:-77px"><i class="ion-chevron-down"></i></a>
 
     </div><!--.container-->
 
@@ -206,7 +206,7 @@ with a passionate community of writers and enthusiasts.</span>
 
     <div class="container">
 
-      <div class="slide-image-vertical hide-on-mobile" data-bottom-top="top:-200px" data-center-bottom="top:100px"><img src="/assets/about_video.jpg" alt=""></div><!--.slide-image-->
+      <div class="slide-image-vertical hide-on-mobile" data-bottom-top="top:-200px" data-center-bottom="top:100px"><img src="/assets/baa.jpg" alt=""></div><!--.slide-image-->
 
       <div class="row">
         <div class="col-md-6">
@@ -253,10 +253,10 @@ with a passionate community of writers and enthusiasts.</span>
 
   <div class="slide bg-image-with-shadow" style="background-image: url('/assets/bg-overview.jpg'); " data-nav="slide3">
     <div class="container">
-      <h3 class="text-white text-center">LETS SEE!</h3>
-      <p class="caption text-white text-center">How bloggers works on blogger. How an article take place in blogger.</p>
+      <h3 class="text-white text-center" style="margin-top:0px;">LETS SEE!</h3>
+      <p class="caption text-white text-center" style="margin-bottom:0px;">How bloggers works on blogger. How an article take place in blogger.</p>
 
-      <ul class="row list-horizontal white">
+      <ul class="row list-horizontal white" style="margin-top:110px;">
         <li class="col-sm-4" data-bottom-top="top:-50px" data-center="top:0px">
           <div class="list-icon">
             <i class="ion-ios-lightbulb"></i>
@@ -291,15 +291,15 @@ with a passionate community of writers and enthusiasts.</span>
     </div><!--.container-->
   </div><!--.slide-->
 
-  <div class="slide bg-pattern" style="background-image: url('/assets/patterns/sativa.png');" data-nav="slide4">
+  <div class="slide bg-pattern" style="background-image: url('/assets/sativa.png');" data-nav="slide4">
     <div class="container">
-      <h3 class="text-black text-center">ABOUT US</h3>
-      <p class="caption text-center">Here are some peoples, who give their full effort in making blogger and giving their best.</p>
+      <h3 class="text-black text-center" style="margin-top:0px;">ABOUT US</h3>
+      <p class="caption text-center" style="margin-bottom:0px;">Here are some peoples, who give their full effort in making blogger and giving their best.</p>
 
       <div class="row transform-bug">
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-100px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/faces/large/1.jpg" class="member-image" alt="">
+            <img src="/assets/large/1.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>Kathryn Hoffman</h5>
               <h6>CEO</h6>
@@ -314,7 +314,7 @@ with a passionate community of writers and enthusiasts.</span>
 
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-200px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/faces/large/6.jpg" class="member-image" alt="">
+            <img src="/assets/large/6.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>James Ramos</h5>
               <h6>PROJECT MANAGER</h6>
@@ -329,7 +329,7 @@ with a passionate community of writers and enthusiasts.</span>
 
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-200px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/faces/large/7.jpg" class="member-image" alt="">
+            <img src="/assets/large/7.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>William Romero</h5>
               <h6>WEB DEVELOPER </h6>
@@ -344,7 +344,7 @@ with a passionate community of writers and enthusiasts.</span>
 
         <div class="col-md-3 col-sm-4 col-xs-12" data-bottom-top="bottom:-100px" data-center="bottom:0px">
           <div class="card card-user-new">
-            <img src="/assets/faces/large/4.jpg" class="member-image" alt="">
+            <img src="/assets/large/4.jpg" class="member-image" alt="">
             <div class="card-body">
               <h5>Justin Bowman</h5>
               <h6>Marketing Representative</h6>
@@ -367,8 +367,8 @@ with a passionate community of writers and enthusiasts.</span>
   <div class="slide" style="background-color:#F7F8F8" data-nav="slide5">
 
     <div class="container">
-      <h3 class="text-black text-center">SIGN UP</h3>
-      <p class="caption text-center">It's free and always will be. </p>
+      <h3 class="text-black text-center" style="margin-top:0px;">SIGN UP</h3>
+      <p class="caption text-center" style="margin-bottom:0px;">It's free and always will be. </p>
         <div class="col-md-7 col-xs-12">
       <p class="signp" style="margin-bottom:25px">WHY JOIN BLOGGER <span data-typer-targets="FAMILY, COMMUNITY">FAMILY.</p>
      
@@ -405,7 +405,7 @@ with a passionate community of writers and enthusiasts.</span>
   <div class="slide" data-nav="slide6">
 
     <div class="container">
-      <h3 class="text-black text-center">CONTACT</h3>
+      <h3 class="text-black text-center" style="margin-top:0px;">CONTACT</h3>
       <p class="caption text-center">We will be glad if you write us.</p>
 
       <div class="row">

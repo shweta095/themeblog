@@ -46,5 +46,8 @@ group :development do
   gem  'papercrop'
   gem 'omniauth'
   gem 'omniauth-facebook'
+  gem 'jquery-validation-rails'
+  gem 'jquery-form-validator-rails'
+  gem 'will_paginate', '~> 3.0.6'
 end
 
