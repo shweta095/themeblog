@@ -1,10 +1,8 @@
 <div class="panel">
   
-  <div class="panel-heading">
-    <div class="panel-title"><h4 style="margin:10px;">CREATE ARTICLE</h4></div>
-  </div><!--.panel-heading-->
+  <!--.panel-heading-->
   <div class="panel-body">
-<%= form_for(@article) do |f| %>
+<%= form_for(@article, :html => {:class => "form-horizontal parsley-validate-icon"}) do |f| %>
   <% if @article.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -21,11 +19,15 @@
   <div class="row">
    <div class="col-md-4 form-group ">
                      <div class="fileinput fileinput-new align-cntr" data-provides="fileinput">
+                     
                       <div class="fileinput-preview thumbnail " style="width: 300px; height: 250px;">
+                      <% if @article.image present?%>
+                     <%= image_tag @article.image.url(:medium)%>
+                     <%end%>
                       </div>
                      <div>
-                      <span class="btn btn-default btn-file "><span class="fileinput-new">Select Image</span><%= f.file_field :image%><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
-                      <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                      <span class="btn btn-teal btn-file "><span class="fileinput-new">Select Image</span><%= f.file_field :image%><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
+                      <a href="#" class="btn btn-teal fileinput-exists" data-dismiss="fileinput">Remove</a>
                      </div>
                     </div> 
   </div>
@@ -39,7 +41,7 @@
                   <div>
                     <div class="inputer">
                       <div class="input-wrapper">
-                      <%= f.text_field :title, placeholder:"Title",:class=>"form-control" %>
+                      <%= f.text_field :title, placeholder:"Title",:class=>"form-control", :required => true %>
                       </div>
                     </div>
                   </div>
@@ -53,7 +55,7 @@
                   <div >
                     <div class="inputer">
                       <div class="input-wrapper">
-                     <%= f.text_field :body, placeholder: "Description", :class=>"form-control" %>
+                     <%= f.text_area :body, placeholder: "Description", :class=>'form-control wysihtml5-editor bs-wysihtml5', :required => true, :minlength => '20' %>
                       </div>
                     </div>
                   </div>
@@ -65,7 +67,7 @@
       <div class="row">
 
         <div class=" col-md-8">
-          <%= f.submit "Create", :class=>"btn btn-brown", style: 'margin-top:125px;' %>
+          <%= f.submit "Create", :class=>"btn btn-teal", style: 'margin-top:125px;' %>
         </div> 
 
       </div>

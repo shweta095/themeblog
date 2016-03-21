@@ -1680,8 +1680,8 @@ fieldset[disabled] .btn-cyan.active {
 }
 .btn-teal {
   color: #ffffff;
-  background-color: #009587;
-  border-color: #009f90;
+  background-color: #3E50B4;
+  border-color: #3E50B4;
 }
 .btn-teal:hover,
 .btn-teal:focus,
@@ -1689,9 +1689,9 @@ fieldset[disabled] .btn-cyan.active {
 .btn-teal:active,
 .btn-teal.active,
 .open > .dropdown-toggle.btn-teal {
-  color: #ffffff;
-  background-color: #006259;
-  border-color: #006259;
+  color: #3E50B4;
+  background-color: transparent;
+  border-color: #3E50B4;
 }
 .btn-teal:active,
 .btn-teal.active,
@@ -1729,9 +1729,9 @@ fieldset[disabled] .btn-teal.active {
 .btn-teal:active,
 .btn-teal.active,
 .open > .dropdown-toggle.btn-teal {
-  color: #ffffff;
-  background-color: #009587;
-  border-color: #009f90;
+  color: #3E50B4;
+  background-color: transparent;
+  border-color: #3E50B4;
 }
 .btn-teal:active,
 .btn-teal.active,

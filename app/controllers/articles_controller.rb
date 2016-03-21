@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy,:signed]
    
       before_action :authenticate_user!, :except => [:index]
-before_action :signed, only: [:edit]
+before_action :signed, only: [:edit,:update,:destroy]
   # GET /articles
   # GET /articles.json
   def index
@@ -28,7 +28,7 @@ before_action :signed, only: [:edit]
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = Article.new(article_params)
   end
 
   # GET /articles/1/edit

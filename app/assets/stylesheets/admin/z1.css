@@ -1,28 +1,7 @@
 body{font-family: 'Open Sans', sans-serif;
 font-size:14px;}
 a:hover{text-decoration: none;}
-.aaaa input[type=submit] {padding:10px 15px; background:#3E50B4; border:0 none;
-    cursor:pointer;
-    
-    color:white;
-     }
-.aaaa input[type=file] {padding:10px 15px; background:#3E50B4; border:0 none;
-    cursor:pointer;
-    
-    color:white;
-     }
-     .imagePreview {
-    width: 180px;
-    height: 175px; }
 
-    .cancel{margin-top: 20px;
-    float: right;
-    border: 1px solid #3E50B4;
-    background-color: #3E50B4;
-    margin-left: 35px;
-    margin-right: 15px;
-    padding: 10px 20px 8px 20px;}
-.cancel a{color: white;}
 .menu-layer li a:hover {color: #3E50B4;}
 .xyz a{color: white !important;}
    hr{ margin-top: -10px;
@@ -122,3 +101,7 @@ top: 85px;}
 .align-rt{
   text-align: right;
 }
+
+.btn-theme{color: #ffffff;
+    background-color: #3E50B4;
+    border-color: #3E50B4;}
