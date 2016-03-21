@@ -23,8 +23,8 @@
 
 					<div class="card-body">
 						<div class="calendar">
-							<div class="month"><%= l @article.created_at, :format => :sample %></div>
-							<div class="date" style="font-size:14px;"><%= l @article.created_at, :format => :sample1 %></div>
+							<div class="month"><%= @article.created_at.strftime("%d %B")%></div>
+							<div class="date" style="font-size:14px;"><%= @article.created_at.strftime("%g")%></div>
 						</div><!--.calendar-->
 						
 						<p style="font-size:13px; margin-top:10px;"><%=@article.body%></p>
@@ -43,15 +43,15 @@
 
 
 <h3>Comments (<%= @article.comments.size %>)</h3>
-
-<div class="comment-sec">  
-<%= render partial: 'articles/comment', collection: @article.comments %>
-</div>
 <div>
 <% if user_signed_in?%>
 <%= render partial: 'comments/form' %>
 <%end%>
 </div>
+<div class="comment-sec">  
+<%= render partial: 'articles/comment', collection: @article.comments%>
+</div>
+
 
 
 				

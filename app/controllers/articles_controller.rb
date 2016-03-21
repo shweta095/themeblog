@@ -7,7 +7,7 @@ before_action :signed, only: [:edit,:update,:destroy]
   # GET /articles.json
   def index
     @articles = Article.all
-    @paginate = @articles.paginate(:page => params[:page], :per_page => 2)
+    @paginate = @articles.paginate(:page => params[:page], :per_page => 4)
      if params[:search]
     @articles = Article.search(params[:search]).order("created_at DESC")
   else
@@ -28,7 +28,7 @@ before_action :signed, only: [:edit,:update,:destroy]
 
   # GET /articles/new
   def new
-    @article = Article.new(article_params)
+    @article = Article.new
   end
 
   # GET /articles/1/edit
@@ -113,6 +113,6 @@ before_action :signed, only: [:edit,:update,:destroy]
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:title, :body, :tag_list, :image, :user_id,:photo_crop_x,:photo_crop_y,:photo_crop_w,:photo_crop_h,:photo_aspect)
+      params.require(:article).permit(:title, :body, :tag_list, :image, :user_id,:image_crop_x,:image_crop_y,:image_crop_w,:image_crop_h,:image_aspect)
     end
 end

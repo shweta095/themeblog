@@ -1,2 +1,2 @@
 
-$(".comment-sec").html("<%= escape_javascript(render(:partial => '/comments/form')) %>"); 
+$("#<%=@comment.id%>").html("<%= escape_javascript(render(:partial => '/comments/form')) %>"); 
