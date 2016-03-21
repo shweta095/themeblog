@@ -45,7 +45,7 @@
         <h5 style="
     font-weight: 600;">POPULAR POSTS</h5>
         <hr>
-        <%@paginate.each do |article|%>
+        <%@articles.each do |article|%>
           <div class="card tile card-news-more material-animate" style="height: 162px
    ">
             <div class="card-heading bg-image bg-opaque5">
@@ -132,8 +132,12 @@
 
   * data-nav="remove" attribute hides the active navigation border when this slide in viewport.
   -->
-  <div class="slide bg-image" data-nav="remove" style="background: url('/assets/hd2.jpg') center fixed;">
 
+
+
+  <div class="slide bg-image" data-nav="remove" style="background: url('/assets/hd2.jpg') center fixed;">
+    
+     
     <div class="container">
       <div class="row">
         <div class="col-md-9">
@@ -145,7 +149,9 @@
       
 
     </div><!--.container-->
+   
     
+           
     <a class="btn btn-large btn-floating btn-indigo btn-next btn-next-center" data-anchor="slide1" data-nav-link><i class="ion-chevron-down"></i></a>
 
   </div><!--.slide-hero-->

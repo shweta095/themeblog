@@ -25,7 +25,7 @@
                      <%= image_tag @article.image.url(:medium)%>
                      <%end%>
                       </div>
-                     <div>
+                     <div style="margin-top: 1px">
                       <span class="btn btn-teal btn-file "><span class="fileinput-new">Select Image</span><%= f.file_field :image%><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
                       <a href="#" class="btn btn-teal fileinput-exists" data-dismiss="fileinput">Remove</a>
                      </div>
@@ -66,8 +66,8 @@
     <div class="form-buttons row mb">
       <div class="row">
 
-        <div class=" col-md-8">
-          <%= f.submit "Create", :class=>"btn btn-teal", style: 'margin-top:125px;' %>
+        <div class=" col-md-8" style="padding-left: 0px;">
+          <%= f.submit "Create", :class=>"btn btn-teal", :style => "padding: 5px 40px; margin-top:1px;"%>
         </div> 
 
       </div>

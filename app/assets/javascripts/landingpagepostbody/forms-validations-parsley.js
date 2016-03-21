@@ -51,6 +51,7 @@ var FormsValidationsParsley = {
 
 		$('.summernote-default').summernote(); // Summernote WYSIWYG Plugin
 	}
+	
 }
 
 
