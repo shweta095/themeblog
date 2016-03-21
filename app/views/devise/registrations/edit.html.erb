@@ -10,9 +10,9 @@
   <%= devise_error_messages! %>
   <div class="row">
 
-  <div class="col-md-4 form-group ">
+  <div class="col-md-4 form-group align-cntr">
                      <div class="fileinput fileinput-new align-cntr" data-provides="fileinput">
-                      <div class="fileinput-preview thumbnail " style="width: 300px; height: 250px;">
+                      <div class="fileinput-preview thumbnail " style= "width: 300px; height: 250px; margin-bottom:25px;">
                       <% if user_signed_in? %>
                       <% if current_user.image present?%>
                       <%= image_tag current_user.image.url(:medium)%>
@@ -20,9 +20,8 @@
                       <%end%>
                       </div>
                      <div>
-                      <span class="btn btn-default btn-file " style="background-color: #785447;
-    color: white;"><span class="fileinput-new">Select Image</span><%= f.file_field :image%><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
-                      <a href="#" class="btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                      <span class="btn  btn-file btn-teal "><span class="fileinput-new">Select Image</span><%= f.file_field :image%><span class="fileinput-exists">Change</span><input type="file" name="image"></span>
+                      <a href="#" class="btn btn-teal fileinput-exists" data-dismiss="fileinput">Remove</a>
                      </div>
                     </div> 
   </div>
@@ -94,7 +93,7 @@
               <div class="form-buttons row">
                   <div class="row">
                       <div class=" col-md-5 col-md-offset-3">
-                          <%= f.submit "Update", :class=>"btn btn-brown" %>
+                          <%= f.submit "Update", :class=>"btn btn-teal" %>
                       </div>
                   </div>
               </div>

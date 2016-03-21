@@ -41,6 +41,7 @@
 <%= javascript_include_tag 'landingpageplugin'%>
 <%end%>
 <%= yield %>
+
 <%if user_signed_in?%>
  <%= javascript_include_tag 'application'%>
  <%else%>
@@ -51,7 +52,7 @@
   
   
 
-  $(".notice").fadeOut(7000);
+  $(".notice").fadeOut(5000);
 
  
 

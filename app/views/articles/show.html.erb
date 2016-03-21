@@ -13,7 +13,10 @@
 					<h4 style="margin-left: 10px;
     margin-top: 10px;"><%= @article.title%><% if user_signed_in?%>
 <%if @article.user.id == current_user.id%>
-<%= link_to 'Edit', edit_article_path(@article), :style => "font-size:13px" %>
+<%= link_to 'Edit', edit_article_path(@article), :style => "font-size:13px" %> |
+<%= link_to 'Delete', article_path(@article), method: :delete, :style => "font-size:13px" %>
+
+
 <%end%> <%end%></h4>
 					<%= image_tag @article.image.url(:medium), style: "width:100%"%>
 					</div><!--.card-heading-->
