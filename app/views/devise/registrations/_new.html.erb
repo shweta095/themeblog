@@ -2,34 +2,57 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:class => "form-horizontal parsley-validate-icon"}) do |f| %>
   <%= devise_error_messages! %>
   <div class="form-group">
-            <div class="inputer inputer-teal floating-label">
+            <div class="inputer inputer-teal floating-label" style="margin-top: 13px">
               <div class="input-wrapper">
  <%= f.email_field :email, :class =>"form-control", :required => "true"%>
   <label><%= f.label :email %></label>
   </div></div></div>
 
   <div class="form-group">
-            <div class="inputer inputer-teal floating-label">
+            <div class="inputer inputer-teal floating-label" style="margin-top: 13px">
               <div class="input-wrapper">
     
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %>
-    <%= f.password_field :password, autocomplete: "off",:class =>"form-control", :required => "true", :minlength => '8'%>
+    <%= f.password_field :password, autocomplete: "off",:class =>"form-control psd", :required => "true", :minlength => '8'%>
     <label><%= f.label :password%></label>
   </div></div></div>
 
   <div class="form-group">
-            <div class="inputer inputer-teal floating-label">
+            <div class="inputer inputer-teal floating-label" style="margin-top: 13px">
               <div class="input-wrapper">
    
     <%= f.password_field :password_confirmation, autocomplete: "off", :class =>"form-control", :required => "true", :minlength => '8' %>
      <%= f.label :password_confirmation, "Confirm password" %>
-  </div></div></div>
+  </div></div>
+  <div id="validate-password-status"></div></div>
   
    <div class="col-md-6 col-xs-12" style="padding-left:0px;">
     
                   <%= f.submit "SIGN UP", :class =>"btn btn-teal pull-left "  %>
               </div>
   <% end %>
+<script type="text/javascript">
+$(document).ready(function() {
+  $("#user_password_confirmation").keyup(validatePassword);
+});
 
+
+function validatePassword() {
+
+  var password = $(".psd").val();
+  var password_confirmation = $("#user_password_confirmation").val();
+
+
+
+    if(password == password_confirmation) {
+       $("#validate-password-status").text("Passwords match");  
+
+    }
+    else {
+        $("#validate-password-status").text("Passwords do not match");  
+    }
+
+};
+</script>

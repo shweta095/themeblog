@@ -1,5 +1,9 @@
+
+
 <h3> Your image ratio is not perfect. Please crop it.</h3>
-<%= form_for @article, :url => { :action => "crop" }, :html => { :method => "get" } do |f| %>
+
+<%= form_for @article, :url => crop_path(@article), :method => :post do |f| %>
+
 <%= f.cropbox :image,:width => 900 %>
 <%= f.crop_preview :image,:width => 900 %>
 <%= f.submit 'Save', :class=>'btn btn-success' %>

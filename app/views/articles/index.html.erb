@@ -26,8 +26,8 @@
           </div><!--.card-body-->
 
           <div class="card-footer">
-          <a href="http://www.facebook.com" class="btn btn-social-icon btn-facebook pull-left" style="margin-right: 10px; font-size: 11px;"><i class="fa fa-facebook"></i></a>
-           <a href="https://twitter.com/" class="btn btn-social-icon btn-twitter pull-left" style="margin-right: 10px; font-size: 11px;"><i class="fa fa-twitter"></i></a> 
+          <a href="http://www.facebook.com/sharer/sharer.php?u=www.poplify.com" target="_blank" class="btn btn-social-icon btn-facebook pull-left" style="margin-right: 10px; font-size: 11px;"><i class="fa fa-facebook"></i></a>
+            <a href="http://twitter.com/home?status=I’ve just signed up! Get best articles off on POPLOGGER by following my link: http://localhost:3000/users/sign_up" class="btn btn-social-icon btn-twitter pull-left" style="margin-right: 10px; font-size: 11px;"><i class="fa fa-twitter"></i></a> 
            
                 <a href="https://plus.google.com/" class="btn btn-social-icon btn-google-plus pull-left" style="margin-right: 10px; font-size: 11px;"><i class="fa fa-google-plus"></i></a>
                 
@@ -35,7 +35,18 @@
           </div><!--.card-footer-->
         </div><!--.card-->
         <%end%>
-         <%= will_paginate @paginate %>
+
+      <div class="row example-row">
+<div class="col-md-12">
+
+<ul class="pager">
+<li class= <%= will_paginate @paginate %> </a></li>
+</ul>
+
+</div><!--.col-md-9-->
+</div><!--.row-->
+      
+
       </div><!--.col-md-6-->
 
       
@@ -45,7 +56,9 @@
         <h5 style="
     font-weight: 600;">POPULAR POSTS</h5>
         <hr>
-        <%@articles.each do |article|%>
+
+        <% @articles.each do |article|%>
+
           <div class="card tile card-news-more material-animate" style="height: 162px
    ">
             <div class="card-heading bg-image bg-opaque5">
@@ -167,10 +180,10 @@
 
       <div class="row">
         <div class="col-md-6 col-md-offset-6">
-          <h2 class="text-black">FEATURES</h2>
+          <h2 class="text-black" style="margin-top: 30px;">FEATURES</h2>
           <p class="caption" style="margin-bottom:25px">Several Features Which Make You To Join <a href="/articles">blogger</a>.</p>
           <ul class="list-vertical">
-            <li>
+            <li style="padding-top: 15px;">
               <div class="list-icon text-indigo">
                 <i class="ion-ios-compose-outline"></i>
               </div><!--.list-icon-->
@@ -179,7 +192,7 @@
                 <span>On blogger you can write or find articles on every topic.</span>
               </div><!--.list-info-->
             </li>
-            <li>
+            <li style="padding-top: 15px;">
               <div class="list-icon text-green">
                 <i class="ion-earth"></i>
               </div><!--.list-icon-->
@@ -188,7 +201,7 @@
                 <span>blogger community have writer from all over the country, so no need to worry about any language restrictions.</span>
               </div><!--.list-info-->
             </li>
-            <li>
+            <li style="padding-top: 15px;">
               <div class="list-icon text-red">
                 <i class="ion-android-wifi"></i>
               </div><!--.list-icon-->
@@ -370,7 +383,7 @@ with a passionate community of writers and enthusiasts.</span>
   </div><!--.slide-->
 
   
-  <div class="slide" style="background-color:#F7F8F8" data-nav="slide5">
+  <div class="slide" style=" background-color:#F7F8F8" data-nav="slide5">
 
     <div class="container">
       <h3 class="text-black text-center" style="margin-top:0px;">SIGN UP</h3>
@@ -413,6 +426,8 @@ with a passionate community of writers and enthusiasts.</span>
     <div class="container">
       <h3 class="text-black text-center" style="margin-top:0px;">CONTACT</h3>
       <p class="caption text-center">We will be glad if you write us.</p>
+      <div id="welcomeDiv"  style="display:none;" class="answer_list" > Thank You! We will contact you soon.</div>
+
 
       <div class="row">
         <div class="col-md-6 col-xs-12">
@@ -452,7 +467,7 @@ with a passionate community of writers and enthusiasts.</span>
 
       <div class="row">
         <div class="col-md-12">
-          <button type="submit" class="btn btn-teal pull-right">SEND</button>
+          <button type="submit" class="xxx btn btn-teal pull-right" onclick=showDiv()>SEND</button>
         </div><!--.col-->
       </div><!--.row-->
 
@@ -476,3 +491,10 @@ with a passionate community of writers and enthusiasts.</span>
   </div>
 
   <%end%>
+  <script type="text/javascript">
+    function showDiv() {
+   document.getElementById('welcomeDiv').style.display = "block";
+}
+
+$('#welcomeDiv').fadeout("slow");
+  </script>

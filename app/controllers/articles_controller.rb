@@ -37,22 +37,16 @@ before_action :signed, only: [:edit,:update,:destroy]
 
   # POST /articles
   # POST /articles.json
-  def create
-    @article = Article.new
-    @article.user_id=current_user.id
+ def create
+    @article = Article.new(article_params)
+    @article.user_id = current_user.id
     respond_to do |format|
+      if @article.save(article_params)
+        @article=Article.find(@article.id)
       
-      if @article.save
-if params[:article][:image].blank?
-      flash[:notice] = "Successfully created article."
-      redirect_to @article
-    else
-      
-    
-          format.html{ render :crop}
-        end
-        # format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        # format.json { render :show, status: :created, location: @article }
+        format.html{ render :crop}
+        #format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        #format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
         format.json { render json: @article.errors, status: :unprocessable_entity }

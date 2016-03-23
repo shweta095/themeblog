@@ -49,5 +49,6 @@ group :development do
   gem 'jquery-validation-rails'
   gem 'jquery-form-validator-rails'
   gem 'will_paginate', '~> 3.0.6'
+  gem 'omniauth-twitter'
 end
 

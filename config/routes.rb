@@ -5,7 +5,7 @@ Rails.application.routes.draw do
  
   get'profile/:id' =>'articles#profile',as: :profile
  
-  get "/articles/:id/crop" => 'articles#crop'
+  post "/articles/:id/crop" => 'articles#crop',as: :crop
   resources :articles do
      resources :comments
    end

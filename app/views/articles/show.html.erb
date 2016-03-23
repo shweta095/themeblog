@@ -13,9 +13,12 @@
 					<h4 style="margin-left: 10px;
     margin-top: 10px;"><%= @article.title%><% if user_signed_in?%>
 <%if @article.user.id == current_user.id%>
-<%= link_to 'Edit', edit_article_path(@article), :style => "font-size:13px" %> |
-<%= link_to 'Delete', article_path(@article), method: :delete, :style => "font-size:13px" %>
-
+<%= link_to edit_article_path(@article) do %>
+<i class="fa fa-pencil" style="font-size: 12px"></i>
+<%end%>  |
+<%= link_to article_path(@article), method: :delete do%>
+<i class="fa fa-trash" style="font-size: 12px"></i>
+<%end%>
 
 <%end%> <%end%></h4>
 					<%= image_tag @article.image.url(:medium), style: "width:100%"%>
@@ -23,13 +26,13 @@
 
 					<div class="card-body">
 						<div class="calendar">
-							<div class="month"><%= l @article.created_at, :format => :sample %></div>
-							<div class="date" style="font-size:14px;"><%= l @article.created_at, :format => :sample1 %></div>
+							<div class="month"><%= @article.created_at.strftime("%d %B")%></div>
+							<div class="date" style="font-size:14px;"><%= @article.created_at.strftime("%g")%></div>
 						</div><!--.calendar-->
 						
 						<p style="font-size:13px; margin-top:10px;"><%=@article.body%></p>
-						<p><% @article.tags.each do |tag| %>
-    <i class="fa fa-tags"></i>&nbsp;:&nbsp;<%= link_to tag.user_name, tag_path(tag) %>
+						<p><i class="fa fa-tags"></i><% @article.tags.each do |tag| %>
+    &nbsp;&nbsp;<%= link_to tag.name, tag_path(tag) %>
   <% end %>
 </p>
 					</div><!--.card-body-->
@@ -43,15 +46,15 @@
 
 
 <h3>Comments (<%= @article.comments.size %>)</h3>
-
-<div class="comment-sec">  
-<%= render partial: 'articles/comment', collection: @article.comments %>
-</div>
 <div>
 <% if user_signed_in?%>
 <%= render partial: 'comments/form' %>
 <%end%>
 </div>
+<div class="comment-sec">  
+<%= render partial: 'articles/comment', collection: @article.comments%>
+</div>
+
 
 
 				
@@ -60,7 +63,7 @@
 				<div class="card card-user card-user-red">
 					<div class="card-heading heading-center text-color-white" style="background-color: #3e50b4">
 						
-							<%= image_tag @article.user.image.url(:circle), class: "user-image"%>
+							<%= image_tag @article.user.image.url(:small), class: "user-image"%>
 						
 						<h3 class="card-title"><a href="#"><%=@article.user.user_name%></a></h3>
 					</div><!--.card-heading-->

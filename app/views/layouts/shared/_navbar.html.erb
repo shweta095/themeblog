@@ -15,9 +15,11 @@
 		
 
 		<div class="nav-user"><% if user_signed_in?%>
-			<div class="user">
+			<div class="user"><% if current_user.image.present?%>
 				<%= image_tag current_user.image.url(:small)%>
-
+       <%else%>
+       <img src="/assets/demouser.png">
+       <%end%>
 				
 			</div><!--.user--><%end%>
 
@@ -49,9 +51,11 @@
 
         
         <% if user_signed_in?%>
-        <li>
-          <%= link_to "Profile", profile_path(current_user.id)%>
-          
+        <li><% if current_user.user_name.present?%>
+          <%= link_to current_user.user_name, profile_path(current_user.id)%>
+          <%else%>
+          <%= link_to current_user.email, profile_path(current_user.id)%>
+          <%end%>
         </li>
         <li>
           <a href="/articles/new">CREATE ARTICLE</a>

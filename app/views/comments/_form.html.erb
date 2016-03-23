@@ -1,5 +1,5 @@
-
-<%= form_for [ @article, @comment ], remote:true do |f| %>
+<div class="hide-form">
+<%= form_for [ @article, @comment], remote:true do |f| %>
   <% if user_signed_in? %>
 <%= f.hidden_field :user_name, :value => current_user.user_name%>
     
@@ -17,3 +17,13 @@
     <%= f.submit 'Submit',:class=>'btn btn-success', :style =>'margin-bottom: 15px;' %>
    </span> </p>
 <% end %>
+</div>
+<script type="text/javascript">
+   $(".edit-comment-btn").click(function(){
+      $(".hide-form").each(function(){
+     $(this).hide();
+   $('.comment-sec').html("<%= escape_javascript(render(:partial => '/articles/comment', collection: @article.comments.order("created_at DESC"))) %>");
+
+ });
+ });
+</script>
